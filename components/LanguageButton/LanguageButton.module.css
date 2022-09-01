@@ -1,0 +1,20 @@
+
+button {
+    box-sizing: border-box;
+    border: 3px solid #FFFFFF;
+    border-radius: 100px;
+    background-color: #32699F;
+    height: 45px;
+    width: 130px;
+}
+
+p {
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin:0;
+    color: #FFFFFF;
+}
+
