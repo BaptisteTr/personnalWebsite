@@ -1,6 +1,6 @@
 import React from "react";
 import {LocalisationContext} from "../../contexts/Locale";
-import './LanguageButton.module.css';
+import styles from './LanguageButton.module.css';
 
 interface IProps {
 }
@@ -17,8 +17,8 @@ class LanguageButton extends React.Component<IProps, IState> {
     return(
         <LocalisationContext.Consumer>
           {({locale, toggleLocale}) => (
-              <button onClick={toggleLocale}>
-                <p>{locale.buttonLabel}</p>
+              <button className={styles.button} onClick={toggleLocale}>
+                <p className={styles.text}>{locale.buttonLabel}</p>
               </button>
           )}
         </LocalisationContext.Consumer>

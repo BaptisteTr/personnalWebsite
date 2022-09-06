@@ -1,6 +1,21 @@
 import React, { createContext } from 'react'
 
-export const locales = {
+interface LocaleInterface {
+    buttonLabel: string;
+    value: string;
+}
+
+interface LocaleContextInterface {
+    francais : LocaleInterface,
+    english : LocaleInterface
+}
+
+export interface LocalisationContextInterface {
+    locale : LocaleInterface,
+    toggleLocale : () => void
+}
+
+export const locales : LocaleContextInterface = {
     francais: {
         buttonLabel: "English",
         value: "eng"
@@ -11,7 +26,7 @@ export const locales = {
     },
 }
 
-export const LocalisationContext = createContext({
+export const LocalisationContext = createContext< LocalisationContextInterface >({
     locale: locales.francais,
     toggleLocale: () => {},
 });

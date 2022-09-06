@@ -16,5 +16,13 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "module": {
+    "rules": [
+      {
+        "test": "/.(png|jpg|jpeg|gif)$/i",
+        "type": "asset/resource",
+      },
+    ],
+  }
 }
