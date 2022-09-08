@@ -1,6 +1,7 @@
 .backgroundDiv {
     height:950px;
     width:70%;
+    flex: 0.7;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -22,7 +23,7 @@ h1 {
     font-size:xx-large;
 }
 
-p , h1 , h2 {
+.textDiv > p , h1 , h2 {
     color:white;
     font-family: 'robotoregular', serif;
 }

@@ -1,0 +1,75 @@
+#mySkillsTitle {
+    color: #2B3487;
+    align-self: stretch;
+    flex-grow: 0;
+    font-family: 'Inter', serif;
+    align-items: center;
+    text-align: center;
+}
+
+#skillsDiv {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: blue;
+}
+
+#skillsListDiv {
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    flex-direction: row;
+}
+
+#skillsListDiv > div:first-of-type {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#skillsListDiv > div:last-of-type {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+
+#mySkillsDescription {
+    align-self: flex-start;
+    flex-grow: 0;
+}
+
+.skillItem {
+    background: #E6ECFF;
+    border-radius: 10px;
+    flex-grow: 0;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #32699F;
+    padding: 5px 5px 5px 5px;
+}
+
+.skillItem:hover {
+    background-color: #2B3487;
+    color:white;
+    transition: all 100ms ease-in;
+}
+
+.skillLogo {
+
+}
+
+.skillTitle {
+    color: #32699F;
+}
+
+.skillsList {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow:1;
+    width: 427px;
+}
