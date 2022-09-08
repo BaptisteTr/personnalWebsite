@@ -1,0 +1,28 @@
+.backgroundDiv {
+    height:950px;
+    width:70%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
+.textDiv {
+    position:absolute;
+    width: 35%;
+    top:50%;
+    left:30%;
+}
+
+h1 {
+    margin: 0;
+    font-size:xx-large;
+}
+
+p , h1 , h2 {
+    color:white;
+    font-family: 'robotoregular', serif;
+}

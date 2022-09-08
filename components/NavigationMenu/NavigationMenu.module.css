@@ -1,0 +1,22 @@
+
+.topNav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.button {
+    background: #32699F;
+    padding: 32px 40px;
+    color: white;
+    text-decoration: none;
+    font-family: 'robotoregular', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.button:hover {
+    color: #ADC1EC;
+}

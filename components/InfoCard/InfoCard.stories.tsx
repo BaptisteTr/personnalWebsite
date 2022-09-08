@@ -1,9 +1,11 @@
 import React from 'react';
 import InfoCard from './InfoCard';
+import {locales, LocalisationContext} from "../../contexts/Locale";
+
 
 import { ComponentMeta , ComponentStory} from '@storybook/react';
+import { withReactContext } from 'storybook-react-context';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'InfoCard',
     component: InfoCard,
@@ -11,3 +13,10 @@ export default {
 
 export const Primary: ComponentStory<typeof InfoCard> = () => <InfoCard/>
 export const English: ComponentStory<typeof InfoCard> = () => <InfoCard/>
+
+English.decorators = [withReactContext({
+    Context: LocalisationContext,
+    initialState: {
+        locale: locales.english
+    },
+})];

@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import React from "react";
-import {LocalisationContext , locales, LocalisationContextInterface} from "../../contexts/Locale";
+import {LocalisationContext , locales } from "../../contexts/Locale";
 import styles from './InfoCard.module.css';
 import portrait from "../../Assets/Portrait.png";
 import linkedin from "../../Assets/Linkedin.svg";
 import malt from "../../Assets/Malt.svg";
 import github from "../../Assets/Github.svg";
+
+import '../../fonts/stylesheet.css';
 
 interface IProps {
 }
@@ -18,13 +20,13 @@ const Content = () =>
     const localisation = useContext(LocalisationContext);
     let frcontent = <p className={styles.text}>
             Ingénieur logiciel<br/>
-            Strasbourg, France<br/>
+            Strasbourg, France<br/><br/>
             contact@baptistetrautmann.com
         </p>;
 
     let engcontent = <p className={styles.text}>
         Software engineer<br/>
-        Strasbourg, France<br/>
+        Strasbourg, France<br/><br/>
         contact@baptistetrautmann.com
     </p>
     if(localisation.locale === locales.francais) {
@@ -32,6 +34,22 @@ const Content = () =>
     } else {
         return engcontent;
     }
+
+}
+
+
+const DownloadButton = () =>
+{
+    const localisation = useContext(LocalisationContext);
+    let content
+
+    if(localisation.locale === locales.francais) {
+        content = <p>Télécharger CV</p>;
+    } else {
+        content = <p>Download CV</p>;
+    }
+
+    return <button>{content}</button>;
 
 }
 
@@ -51,7 +69,7 @@ class InfoCard extends React.Component<IProps, IState> {
                     <img src={malt} alt="malt logo"/>
                     <img src={github} alt="github logo"/>
                 </div>
-                <button><p>Télécharger CV</p></button>
+                <DownloadButton/>
             </div>
         );
     }
