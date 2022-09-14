@@ -12,7 +12,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
-    background-color: blue;
+    background: linear-gradient(to bottom, white 48%, #32699F 52%);
 }
 
 #skillsListDiv {
@@ -22,14 +22,26 @@
     flex-direction: row;
 }
 
+#skillsListDiv > div {
+    opacity: 0.85;
+    border-color: rgba(17,17,17,25%);
+    border-width: 1px;
+    border-style: inset;
+    background: rgba( 255, 255, 255, 0.9);
+    backdrop-filter: blur( 50px );
+    -webkit-backdrop-filter: blur( 50px );
+}
+
 #skillsListDiv > div:first-of-type {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
+    border-right-style: none;
 }
 
 #skillsListDiv > div:last-of-type {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    border-left-style: none;
 }
 
 
@@ -49,6 +61,7 @@
     line-height: 23px;
     color: #32699F;
     padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
 }
 
 .skillItem:hover {
@@ -58,11 +71,12 @@
 }
 
 .skillLogo {
-
+    margin: 10px;
 }
 
 .skillTitle {
-    color: #32699F;
+    color: #2B3487;
+    margin-bottom: 20px;
 }
 
 .skillsList {
@@ -72,4 +86,5 @@
     flex-direction: column;
     flex-grow:1;
     width: 427px;
+    height:300px;
 }
