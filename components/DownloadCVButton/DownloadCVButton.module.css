@@ -1,0 +1,52 @@
+.cvButton {
+    box-sizing: border-box;
+    border: 3px solid #32699F;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    height: 53px;
+    width : fit-content;
+    transition: all 150ms ease-in;
+    color : #32699F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cvButton:hover {
+    transition: all 150ms ease-in;
+}
+
+.cvButton > span {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0 20px;
+}
+
+.whiteCVButton {
+    background-color:#32699F;
+    border-color: #FFFFFF;
+    color:#FFFFFF;
+}
+
+.whiteCVButton:hover {
+    background-color:#FFFFFF;
+    border-color: #FFFFFF;
+    color:#32699F;
+}
+
+.blueCVButton {
+    background-color:#FFFFFF;
+    border-color:#FFFFFF;
+    color:#32699F;
+}
+
+.blueCVButton:hover {
+    background-color: #32699F;
+    border-color: #FFFFFF;
+    color:#FFFFFF;
+}

@@ -3,11 +3,10 @@ import React from "react";
 import {LocalisationContext , locales } from "../../contexts/Locale";
 import styles from './InfoCard.module.css';
 import portrait from "../../Assets/Portrait.png";
-import linkedin from "../../Assets/Linkedin.svg";
-import malt from "../../Assets/Malt.svg";
-import github from "../../Assets/Github.svg";
+import {ExteriorLinks} from "../ExteriorLinks/ExteriorLinks";
 
 import '../../fonts/stylesheet.css';
+import {DownloadCVButton} from "../DownloadCVButton/DownloadCVButton";
 
 interface IProps {
 }
@@ -37,22 +36,6 @@ const Content = () =>
 
 }
 
-
-const DownloadButton = () =>
-{
-    const localisation = useContext(LocalisationContext);
-    let content
-
-    if(localisation.locale === locales.francais) {
-        content = <p>Télécharger CV</p>;
-    } else {
-        content = <p>Download CV</p>;
-    }
-
-    return <button>{content}</button>;
-
-}
-
 class InfoCard extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
@@ -60,16 +43,12 @@ class InfoCard extends React.Component<IProps, IState> {
 
     render() {
         return(
-            <div className={styles.infocard} >
+            <div className={styles.infocard}>
                 <img className={styles.error} src={portrait} alt="portrait image"/>
                 <h1 className={styles.text}>Baptiste Trautmann</h1>
                 <Content/>
-                <div className={styles.infoLinks}>
-                    <img src={linkedin} alt="linkedin logo"/>
-                    <img src={malt} alt="malt logo"/>
-                    <img src={github} alt="github logo"/>
-                </div>
-                <DownloadButton/>
+                <ExteriorLinks color="white"/>
+                <DownloadCVButton color="white"/>
             </div>
         );
     }
