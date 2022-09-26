@@ -1,0 +1,85 @@
+.portfolioCard {
+    width : 450px;
+    height : 450px;
+    border-radius : 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E6ECFF;
+    gap : 0px;
+    overflow: hidden;
+}
+
+.picture {
+    width: 100%;
+    height: 50%;
+}
+
+.portfolioTitle {
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    color: #2B3487;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.portfolioSeparator {
+    height : 5px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: #32699F;
+}
+
+.portfolioDescription {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: inherit;
+    margin-left: 20px;
+    margin-right: 20px;
+    color:black;
+    margin-top: 5px;
+}
+
+.portfolioTechs {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.portfolioTech {
+    color : #2B3487;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.portfolioButton {
+    box-sizing: border-box;
+    border: 3px solid #32699F;
+    border-radius: 100px;
+    background-color: #E6ECFF;
+    height: 39px;
+    width: 130px;
+    transition: all 150ms ease-in;
+    color: #32699F;
+    font-size : 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'robotobold', serif;
+}
+.portfolioButton:hover {
+    background-color: #32699F;
+    color:#E6ECFF;
+    transition: all 150ms ease-in;
+}
+
+.portfolioButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-top: auto;
+    margin-bottom: 10px;
+}

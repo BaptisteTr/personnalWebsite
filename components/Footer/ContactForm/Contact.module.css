@@ -1,0 +1,71 @@
+#contactDiv{
+    width: 650px;
+}
+
+#contactForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap : 5px;
+}
+
+#contactForm > p {
+    color:#32699F;
+    font-size: 20px;
+    font-family: 'robotoregular', serif;
+}
+
+#contactNameInput{
+    width: 100%;
+    height: 38px;
+    background-color: #ADC1EC;
+    border-style: none;
+    color : white;
+    font-size: 15px;
+    font-family: 'robotoregular', serif;
+}
+
+#contactEmailInput{
+    width: 100%;
+    height: 38px;
+    background-color: #ADC1EC;
+    border-style: none;
+    color : white;
+    font-size: 15px;
+    font-family: 'robotoregular', serif;
+}
+
+#contactMessageInput{
+    font-family: 'robotoregular', serif;
+    font-size: 15px;
+    width: 100%;
+    resize:vertical;
+    min-height: 190px;
+    background-color: #ADC1EC;
+    border-style: none;
+    height: 190px;
+    color : white;
+    padding-top: 10px;
+}
+
+#contactSubmit{
+    align-self: flex-end;
+    box-sizing: border-box;
+    border: 3px solid #32699F;
+    border-radius: 100px;
+    background-color:transparent;
+    height: 45px;
+    width: 130px;
+    transition: all 150ms ease-in;
+    color: #32699F;
+    font-size : 16px;
+    font-family: 'robotobold', serif;
+}
+
+#contactSubmit:hover {
+    background-color: #32699F;
+    border-color: #32699F;
+    color:#FFFFFF;
+    transition: all 150ms ease-in;
+}

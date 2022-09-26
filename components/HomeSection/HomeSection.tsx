@@ -1,8 +1,6 @@
 import React from "react";
 
-import '../../fonts/stylesheet.css';
-import InfoCard from "../InfoCard/InfoCard";
-import Presentation from "../Presentation/Presentation";
+import Presentation from "./Presentation/Presentation";
 import style from './HomeSection.module.css';
 
 interface IProps {
@@ -19,7 +17,6 @@ class HomeSection extends React.Component<IProps, IState> {
     render() {
         return <div className={style.homeSection}>
             <Presentation/>
-            <InfoCard/>
         </div>
         ;
     }

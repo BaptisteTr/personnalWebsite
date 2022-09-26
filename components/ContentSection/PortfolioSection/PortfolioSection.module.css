@@ -1,0 +1,22 @@
+#portfolioSection {
+    display: flex;
+    width : 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    gap : 30px;
+    justify-content: center;
+}
+
+#portfolioSectionTitle {
+    color: white;
+    text-align: center;
+    margin: 40px auto;
+}
+
+#portfolioSectionDiv {
+    background-color: #32699F;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 5px;
+}

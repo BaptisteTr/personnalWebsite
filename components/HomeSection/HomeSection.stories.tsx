@@ -5,7 +5,7 @@ import { ComponentMeta , ComponentStory} from '@storybook/react';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'HomeSection',
+    title: 'HomeSection/HomeSection',
     component: HomeSection,
 } as ComponentMeta<typeof HomeSection>;
 

@@ -1,0 +1,50 @@
+.backgroundDiv {
+    height:950px;
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    /*filter: blur(2px);*/
+    /*-webkit-filter: blur(2px);*/
+}
+
+.textDiv {
+    position:absolute;
+    width: 50%;
+    top:50%;
+    left:10%;
+}
+
+.nameTitle {
+    width: fit-content;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.nameTitles {
+    margin: 0;
+    font-size:xx-large;
+    font-family: 'robotomedium', serif;
+    color: white;
+}
+
+.textTitles {
+    color:white;
+    font-family: 'robotoregular', serif;
+}
+
+.textTitle {
+    margin-top: 50px;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.infoCard {
+    position: absolute;
+    width: 30%;
+    height: 950px;
+    top:0;
+    left:70%;
+}

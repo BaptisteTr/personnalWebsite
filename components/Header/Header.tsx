@@ -1,8 +1,7 @@
 import React from "react";
 
-import '../../fonts/stylesheet.css';
-import NavigationMenu from "../NavigationMenu/NavigationMenu";
-import LanguageButton from "../LanguageButton/LanguageButton";
+import NavigationMenu from "./NavigationMenu/NavigationMenu";
+import LanguageButton from "./LanguageButton/LanguageButton";
 import style from './header.module.css';
 
 interface IProps {

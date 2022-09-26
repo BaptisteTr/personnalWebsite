@@ -1,0 +1,15 @@
+.footerSection {
+    background-color: #E6ECFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blueFooter{
+    background-color: #32699F;
+    height: 50px;
+}
+
+.blueFooter > p {
+    margin: 0;
+}
