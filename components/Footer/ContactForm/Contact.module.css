@@ -61,6 +61,7 @@
     color: #32699F;
     font-size : 16px;
     font-family: 'robotobold', serif;
+    cursor: pointer;
 }
 
 #contactSubmit:hover {
@@ -68,4 +69,12 @@
     border-color: #32699F;
     color:#FFFFFF;
     transition: all 150ms ease-in;
+}
+
+@media screen and (max-width: 672px) {
+
+    #contactDiv{
+        width: 98%;
+    }
+
 }

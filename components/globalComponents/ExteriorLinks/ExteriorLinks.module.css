@@ -4,9 +4,10 @@
     width:100%;
     flex-direction: row;
     justify-content: center;
+    gap:10px;
 }
 
-.infoLinks img {
+.infoLinks span {
     height: 40px;
     width: 40px;
     margin-right: 8px;
@@ -14,14 +15,7 @@
     transition: all 100ms ease-in;
 }
 
-.infoLinks img:hover {
+.infoLinks span:hover {
     transform: scale(110%);
     transition: all 100ms ease-in;
-}
-
-.blueStyle {
-    filter: invert(40%) sepia(21%) saturate(1422%) hue-rotate(169deg) brightness(89%) contrast(92%);
-}
-.whiteStyle {
-    color:white;
 }

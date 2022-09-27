@@ -1,13 +1,15 @@
-#mySkillsTitle {
+#myServicesTitle {
     color: #2B3487;
     align-self: stretch;
     flex-grow: 0;
     font-family: 'Inter', serif;
     align-items: center;
     text-align: center;
+    font-size: 34px;
+    font-weight: 600;
 }
 
-#skillsDiv {
+#servicesDiv {
     display: flex;
     align-items: center;
     text-align: center;
@@ -20,12 +22,11 @@
     border-style: solid;
     border-color: rgba(17,17,17,10%);
     background-color: rgba(255,255,255,20%);
-    margin: 150px auto auto;
+    margin: 20px auto auto;
     box-shadow: 0 5px 5px rgba(17,17,17,25%);
-    pointer-events: none;
 }
 
-#skillsListDiv {
+#servicesListDiv {
     display: flex;
     align-items: flex-start;
     text-align: center;
@@ -39,7 +40,7 @@
     border-left-style: none;
 }
 
-#skillsListDiv > div:first-of-type {
+#servicesListDiv > div:first-of-type {
     border-width: 1px;
     border-style: solid;
     border-color: rgba(17,17,17,10%);
@@ -48,7 +49,7 @@
     border-left-style: none;
 }
 
-#skillsListDiv > div:last-of-type {
+#servicesListDiv > div:last-of-type {
     border-width: 1px;
     border-style: solid;
     border-color: rgba(17,17,17,10%);
@@ -57,46 +58,29 @@
     border-right-style: none;
 }
 
-#mySkillsDescription {
+#myServicesDescription {
     align-self: center;
     flex-grow: 0;
     backdrop-filter: blur( 2px );
     color: #2B3487;
-}
-
-.skillItem {
-    background: rgba(50, 105, 159, 10%);
-    border-radius: 10px;
-    flex-grow: 0;
-    font-family: 'Roboto', serif;
+    line-height: 28px;
+    font-weight: 400;
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23px;
-    color: #32699F;
-    padding: 5px 5px 5px 5px;
-    margin-bottom: 10px;
-    cursor: default;
-    pointer-events: all;
+    font-size: 16px;
 }
 
-.skillItem:hover {
-    background-color: #2B3487;
-    color:white;
-    transition: all 100ms ease-in;
-}
-
-.skillLogo {
+.serviceLogo {
+    height: 50px;
+    width: 50px;
     margin: 10px;
 }
 
-.skillTitle {
+.serviceTitle {
     color: #2B3487;
-    margin-bottom: 20px;
-    margin-top: 0px;
+    margin: 0px 10px 20px;
 }
 
-.skillsList {
+.servicesList {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -105,42 +89,52 @@
     height:300px;
 }
 
+.serviceDescription {
+    color: #2B3487;
+    line-height: 28px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
 @media screen and (max-width: 1296px) {
-    #skillsDiv {
+    #servicesDiv {
         width: 100%;
     }
 
-    .skillsList {
+    .servicesList {
         width: 350px;
     }
 }
 
 @media screen and (max-width: 990px) {
 
-    #skillsListDiv {
+    #servicesListDiv {
         flex-direction: column;
     }
 
-    #skillsListDiv > div:first-of-type {
+    #servicesListDiv > div:first-of-type {
         border-style: none;
     }
 
-    #skillsListDiv > div:last-of-type {
+    #servicesListDiv > div:last-of-type {
         border-style: none;
     }
 
-    #skillsListDiv {
+    #servicesListDiv {
         border-style: none;
     }
 
-    #skillsDiv {
+    #servicesDiv {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 672px) {
 
-    #skillsDiv {
+    #servicesDiv {
         width: fit-content;
     }
 }
+
+

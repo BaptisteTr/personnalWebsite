@@ -25,3 +25,37 @@
     text-align: center;
     margin: 0 10px;
 }
+@media screen and (max-width: 672px) {
+
+    .text {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .button {
+        height: 24px;
+        width: 90px;
+        border-width: 1px;
+        position: absolute;
+        right: 0;
+        top: 5%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .text {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .button {
+        height: 24px;
+        width: 90px;
+        border-width: 1px;
+        margin-bottom: 10px;
+        align-self: flex-end;
+    }
+}
+

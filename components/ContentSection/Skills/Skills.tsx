@@ -1,5 +1,4 @@
 import React, {useContext, createContext} from "react";
-
 import {locales, LocalisationContext} from "../../../contexts/Locale";
 import style from './Skills.module.css';
 

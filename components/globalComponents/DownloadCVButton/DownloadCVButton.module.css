@@ -40,7 +40,7 @@
 }
 
 .blueCVButton {
-    background-color:#FFFFFF;
+    background: transparent;
     border-color:#32699F;
     color:#32699F;
 }

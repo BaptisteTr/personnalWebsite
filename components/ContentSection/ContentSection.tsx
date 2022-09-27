@@ -2,6 +2,7 @@ import React from 'react';
 import style from './ContentSection.module.css';
 import Skills from "./Skills/Skills";
 import {CanvasSpace, Create, Line, Pt} from "pts";
+import Services from "./Services/Services";
 
 type ContentSectionProps = {}
 
@@ -21,7 +22,7 @@ export function floatySpace(space: CanvasSpace) {
         start: (bound) => {
 
             // Elements
-            let count = window.innerWidth * 0.08;
+            let count = window.innerWidth * 0.16;
             if (count > 150) count = 150;
             let r = Math.min(space.size.x, space.size.y);
             mouse = space.center;
@@ -47,7 +48,7 @@ export function floatySpace(space: CanvasSpace) {
                 pt.rotate2D( 1 / 2000, space.center);
                 form.fillOnly(colors[i%3]).point( landmarks[i], 2, "circle" );
 
-                let ln = Line.fromAngle(landmarks[i], angle, 1000);
+                let ln = Line.fromAngle(landmarks[i], angle, 2000);
 
                 const distFromMouse = Math.abs(Line.distanceFromPt(ln, mouse));
 
@@ -83,6 +84,7 @@ export class ContentSection extends React.Component {
         return <div id="canvasContainer" className={style.canvasContainer}>
             <canvas id="pts" className={style.canvas}/>
             <div className={style.contentContainer}>
+                <Services/>
                 <Skills/>
             </div>
         </div>;

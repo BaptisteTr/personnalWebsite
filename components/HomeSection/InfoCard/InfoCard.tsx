@@ -15,17 +15,17 @@ interface IState {
 const Content = () =>
 {
     const localisation = useContext(LocalisationContext);
-    let frcontent = <p className={styles.text}>
-            Ingénieur logiciel<br/>
-            Strasbourg, France<br/><br/>
-            contact@baptistetrautmann.com
-        </p>;
+    let frcontent = <div className={styles.contentText}>
+            <p className={styles["trade"]}>Ingénieur logiciel</p>
+            <p className={styles["location"]}>Strasbourg, France</p>
+            <a className={styles["mail"]} href="#">contact@baptistetrautmann.com</a>
+        </div>;
 
-    let engcontent = <p className={styles.text}>
-        Software engineer<br/>
-        Strasbourg, France<br/><br/>
-        contact@baptistetrautmann.com
-    </p>
+    let engcontent = <div className={styles.contentText}>
+        <p>Software engineer</p>
+        <p>Strasbourg, France</p>
+        <a href="#">contact@baptistetrautmann.com</a>
+    </div>
     if(localisation.locale === locales.francais) {
         return frcontent;
     } else {

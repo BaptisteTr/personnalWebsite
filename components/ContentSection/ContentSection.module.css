@@ -1,6 +1,6 @@
 .canvasContainer{
     position: relative;
-    height:1000px;
+    height:1200px;
 }
 
 .contentContainer{
@@ -9,6 +9,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
+    pointer-events: none;
 }
 
 .canvas{
@@ -21,4 +22,16 @@
     position: absolute;
     height: 100px;
     width: 100px;
+}
+
+@media screen and (max-width: 990px) {
+
+    .canvasContainer{
+        height:2400px;
+    }
+
+    .contentContainer{
+        pointer-events: all;
+    }
+
 }

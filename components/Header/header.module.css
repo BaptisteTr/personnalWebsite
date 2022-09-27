@@ -10,3 +10,11 @@
     flex: 0 1 auto;
     margin-right: 10px;
 }
+
+@media screen and (max-width: 990px) {
+
+    .headerBox {
+        flex-direction: column;
+        position: relative;
+    }
+}

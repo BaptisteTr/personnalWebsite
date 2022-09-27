@@ -3,13 +3,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.footerSection > a{
+    color: #32699F;
 }
 
 .blueFooter{
     background-color: #32699F;
     height: 50px;
+    position: relative;
 }
 
 .blueFooter > p {
-    margin: 0;
+    margin: auto;
+    position:absolute;
+    width : 1280px;
+    top: 50%;
+    left: 15%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 990px) {
+
+    .footerSection {
+        flex-direction: column;
+    }
 }

@@ -14,9 +14,9 @@ const NavigationMenu = () => {
     let menuItems : Array<String>;
 
     if(localisation.locale === locales.francais) {
-        menuItems = new Array<String>("Accueil","Expérience et formation","Compétences","Projets");
+        menuItems = new Array<String>("Accueil","Services","Compétences","Projets");
     } else {
-        menuItems = new Array<String>("Home","Experiences and trainings","Skills","Projects");
+        menuItems = new Array<String>("Home","Services","Skills","Projects");
     }
 
     return <div className={styles.topNav}>
