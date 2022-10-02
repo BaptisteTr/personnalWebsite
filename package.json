@@ -11,12 +11,14 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "next": "12.2.5",
+    "nodemailer": "^6.8.0",
+    "pts": "^0.10.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "^6.1.0",
-    "storybook-addon-next": "^1.6.7",
-    "pts": "^0.10.6"
+    "storybook-addon-next": "^1.6.7"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
