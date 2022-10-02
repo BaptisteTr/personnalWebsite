@@ -1,10 +1,12 @@
 #mySkillsTitle {
     color: #2B3487;
-    align-self: stretch;
     flex-grow: 0;
     font-family: 'Inter', serif;
     align-items: center;
     text-align: center;
+    width: fit-content;
+    align-self: center;
+    pointer-events: all;
 }
 
 #skillsDiv {
@@ -62,6 +64,7 @@
     flex-grow: 0;
     backdrop-filter: blur( 2px );
     color: #2B3487;
+    pointer-events: all;
 }
 
 .skillItem {
@@ -94,6 +97,7 @@
     color: #2B3487;
     margin-bottom: 20px;
     margin-top: 0px;
+    pointer-events: all;
 }
 
 .skillsList {

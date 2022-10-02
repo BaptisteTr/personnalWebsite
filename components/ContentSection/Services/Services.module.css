@@ -1,12 +1,13 @@
 #myServicesTitle {
     color: #2B3487;
-    align-self: stretch;
+    align-self: center;
     flex-grow: 0;
     font-family: 'Inter', serif;
     align-items: center;
     text-align: center;
     font-size: 34px;
     font-weight: 600;
+    pointer-events: all;
 }
 
 #servicesDiv {
@@ -67,6 +68,7 @@
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+    pointer-events: all;
 }
 
 .serviceLogo {
@@ -78,6 +80,7 @@
 .serviceTitle {
     color: #2B3487;
     margin: 0px 10px 20px;
+    pointer-events: all;
 }
 
 .servicesList {
@@ -95,6 +98,7 @@
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+    pointer-events: all;
 }
 
 @media screen and (max-width: 1296px) {

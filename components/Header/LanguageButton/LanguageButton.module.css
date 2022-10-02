@@ -4,10 +4,16 @@
     border: 3px solid #FFFFFF;
     border-radius: 100px;
     background-color: #32699F;
-    height: 45px;
-    width: 130px;
     transition: all 150ms ease-in;
     color: #FFFFFF;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    padding: 12px;
+    margin: 0 40px;
 }
 .button:hover {
     background-color: #FFFFFF;
@@ -16,46 +22,27 @@
     transition: all 150ms ease-in;
 }
 
-.text {
-    font-family: 'Inter', serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    margin: 0 10px;
-}
 @media screen and (max-width: 672px) {
 
-    .text {
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 12px;
-    }
-
     .button {
-        height: 24px;
-        width: 90px;
         border-width: 1px;
         position: absolute;
         right: 0;
         top: 5%;
-    }
-}
-
-@media screen and (max-width: 990px) {
-    .text {
         font-weight: 700;
         font-size: 12px;
         line-height: 12px;
     }
+}
 
+@media screen and (max-width: 990px) {
     .button {
-        height: 24px;
-        width: 90px;
         border-width: 1px;
         margin-bottom: 10px;
         align-self: flex-end;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
     }
 }
 

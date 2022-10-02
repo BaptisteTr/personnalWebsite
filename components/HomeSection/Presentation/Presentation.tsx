@@ -2,10 +2,12 @@ import React from "react";
 
 import style from './Presentation.module.css';
 
-import background from "../../../Assets/background.jpg";
 import InfoCard from "../InfoCard/InfoCard";
+import {Description} from "../../../pages";
+import {locales, LocalisationContext} from "../../../contexts/Locale";
 
 interface IProps {
+    descriptions:Description[]
 }
 
 interface IState {
@@ -16,23 +18,33 @@ class Presentation extends React.Component<IProps, IState> {
         super(props);
     }
 
+    static contextType = LocalisationContext;
+    context!: React.ContextType<typeof LocalisationContext>
+
     render() {
+
+
+
+        let { locale } = this.context;
+        let title,description: string|undefined;
+        if(locale === locales.francais) {
+            description = this.props.descriptions.find(d => d.section_key === "presentation")?.description_fr
+            title = "Développeur web Freelance"
+        } else {
+            description = this.props.descriptions.find(d => d.section_key === "presentation")?.description_eng
+            title = "Freelance web Developer"
+        }
+
+
         return <React.Fragment>
             <div className={style.backgroundDiv} style={{backgroundImage: `url(/background.jpg)`}}></div>
             <div className={style.textDiv}>
                 <div className={style.nameTitle}>
                     <h1 className={style.nameTitles}>Baptiste TRAUTMANN</h1>
-                    <h2 className={style.nameTitles}>Développeur web Freelance</h2>
+                    <h2 className={style.nameTitles}>{title}</h2>
                 </div>
                 <div className={style.textTitle}>
-                    <p className={style.textTitles}>Déscription : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                        est laborum</p>
+                    <p className={style.textTitles}>{description}</p>
                 </div>
             </div>
             <div className={style.infoCard} >

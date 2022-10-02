@@ -3,8 +3,16 @@ import style from './ContentSection.module.css';
 import Skills from "./Skills/Skills";
 import {CanvasSpace, Create, Line, Pt} from "pts";
 import Services from "./Services/Services";
+import {Description, Skill} from "../../pages";
 
-type ContentSectionProps = {}
+type ContentSectionProps = {
+    skills:Skill[],
+    descriptions:Description[];
+}
+
+type IState = {
+
+}
 
 const colors = [
     "#02054F", "#2B3487", "#32699F"
@@ -73,7 +81,11 @@ export function floatySpace(space: CanvasSpace) {
     space.bindMouse().bindTouch().play();
 }
 
-export class ContentSection extends React.Component {
+export class ContentSection extends React.Component<ContentSectionProps, IState> {
+
+    constructor(props: ContentSectionProps) {
+        super(props);
+    }
 
     componentDidMount() {
         let space = new CanvasSpace("#pts").setup({bgcolor: "#E6ECFF", retina: true, resize: true});
@@ -84,8 +96,8 @@ export class ContentSection extends React.Component {
         return <div id="canvasContainer" className={style.canvasContainer}>
             <canvas id="pts" className={style.canvas}/>
             <div className={style.contentContainer}>
-                <Services/>
-                <Skills/>
+                <Services descriptions={this.props.descriptions}/>
+                <Skills descriptions={this.props.descriptions}  skills={this.props.skills}/>
             </div>
         </div>;
     }
