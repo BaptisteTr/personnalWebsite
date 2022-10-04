@@ -2,9 +2,10 @@ import Head from 'next/head'
 import Header from "../components/Header/Header";
 import HomeSection from "../components/HomeSection/HomeSection";
 import {PortfolioSection} from "../components/ContentSection/PortfolioSection/PortfolioSection";
-import {ContentSection} from "../components/ContentSection/ContentSection";
+import ContentSection from "../components/ContentSection/ContentSection";
 import {FooterSection} from "../components/Footer/FooterSection";
 import {InferGetStaticPropsType} from "next";
+import React, {LegacyRef, MutableRefObject, useCallback, useRef} from "react";
 
 export type Project = {
   id: number
@@ -19,7 +20,7 @@ export type Project = {
   illustration:string
   picture: any
   technologies: Array<{
-    technologies_id : {
+    Technologies_id : {
       label:string
     }
   }>
@@ -40,15 +41,36 @@ export type Description = {
 
 
 export const getStaticProps = async() => {
-  const res = await fetch('http://localhost:8055/items/Projects?fields=*,technologies.technologies_id.label')
+  const DIRECTUS_URL = process.env.directus_url
+  const DIRECTUS_TOKEN = process.env.directus_token
+  const res = await fetch(`${DIRECTUS_URL}/items/Projects?fields=*,technologies.Technologies_id.label`,
+  {
+        method: 'get',
+        headers: new Headers({
+          'Authorization': `Bearer ${DIRECTUS_TOKEN}`
+        })
+      })
   const result: {data : Project[]} = await res.json()
   const projects : Project[] = result.data;
+  result.data.forEach(p => p.illustration = `${DIRECTUS_URL}/assets/${p.illustration}`)
 
-  const resSkills = await fetch('http://localhost:8055/items/Skills')
+  const resSkills = await fetch(`${DIRECTUS_URL}/items/Skills`,
+      {
+        method: 'get',
+        headers: new Headers({
+          'Authorization': `Bearer ${DIRECTUS_TOKEN}`
+        })
+      })
   const resultSkills: {data : Skill[]} = await resSkills.json()
   const skills : Skill[] = resultSkills.data;
 
-  const resDescriptions = await fetch('http://localhost:8055/items/Descriptions')
+  const resDescriptions = await fetch(`${DIRECTUS_URL}/items/Descriptions`,
+      {
+        method: 'get',
+        headers: new Headers({
+          'Authorization': `Bearer ${DIRECTUS_TOKEN}`
+        })
+      })
   const resultDescriptions: {data : Description[]} = await resDescriptions.json()
   const descriptions : Description[] = resultDescriptions.data;
 
@@ -62,19 +84,72 @@ export const getStaticProps = async() => {
 }
 
 const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof getStaticProps>) => {
-  return (
+
+    const sectionReferences = useRef(null);
+
+    const scrollToHome =  useCallback(
+        () => {
+            if(sectionReferences && sectionReferences.current ) {
+                // @ts-ignore
+                homeRef.current.scrollIntoView();
+            }
+        },
+        []
+    );
+
+    const scrollToServices = useCallback(
+        () => {
+            // @ts-ignore
+            sectionReferences.current.services.scrollIntoView();
+        },
+        []
+    );
+
+    const scrollToSkills = useCallback(
+        () => {
+            // @ts-ignore
+            sectionReferences.current.skills.scrollIntoView();
+        },
+        []
+    )
+
+    const scrollToProjects = useCallback(
+        () => {
+            // @ts-ignore
+            portfolioRef.current.scrollIntoView();
+        },
+        []
+    )
+
+    const scrollToContact = useCallback(
+        () => {
+            // @ts-ignore
+            footerRef.current.scrollIntoView();
+        },
+        []
+    )
+
+    const homeRef = useRef(null);
+    const portfolioRef = useRef(null);
+    const footerRef = useRef(null);
+
+    // @ts-ignore
+    return (
     <div>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Baptiste Trautmann</title>
       </Head>
-        <Header/>
+        <Header scrollToHome={scrollToHome} scrollToServices={scrollToServices} scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
+        <div ref={homeRef} />
         <HomeSection descriptions={descriptions.filter(d => d.section_key.startsWith("presentation"))}/>
-        <ContentSection skills={skills} descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services") )}/>
+        <ContentSection ref={sectionReferences} skills={skills} descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services") )}/>
+        <div ref={portfolioRef}/>
         <PortfolioSection projects={projects}/>
+        <div ref={footerRef}/>
         <FooterSection/>
     </div>
-  )
+    )
 }
 
 export default Home

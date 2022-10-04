@@ -1,6 +1,7 @@
 import React, {FunctionComponent, useContext} from 'react';
 import style from './DownloadCVButton.module.css';
 import {locales, LocalisationContext} from "../../../contexts/Locale";
+import Link from "next/link";
 
 type DownloadCVButtonProps = {
     color: string;
@@ -20,6 +21,6 @@ export const DownloadCVButton: FunctionComponent<DownloadCVButtonProps> = ({colo
         content = "Download CV";
     }
 
-    return <a href="components/globalComponents/DownloadCVButton/DownloadCVButton#" onClick={(e) => {e.preventDefault();window.scrollTo(0, 0);}} className={classes}><span>{content}</span></a>;
+    return <a href="/CV.pdf" className={classes}><span>{content}</span></a>;
 
 }

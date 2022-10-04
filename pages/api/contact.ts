@@ -40,5 +40,6 @@ export default function handler(
             console.log(err)
     })
 
-    res.status(200);
+    res.status(200).end();
+    return res;
 }

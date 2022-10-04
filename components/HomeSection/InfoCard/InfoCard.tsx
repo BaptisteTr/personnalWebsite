@@ -24,7 +24,7 @@ const Content = () =>
     let engcontent = <div className={styles.contentText}>
         <p>Software engineer</p>
         <p>Strasbourg, France</p>
-        <a href="#">contact@baptistetrautmann.com</a>
+        <a href="mailto:contact@baptistetrautmann.com">contact@baptistetrautmann.com</a>
     </div>
     if(localisation.locale === locales.francais) {
         return frcontent;

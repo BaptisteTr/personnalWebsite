@@ -62,7 +62,7 @@ class Services extends React.Component<IProps, IState> {
             chatbotTitle = "Chatbot engineering";
         }
 
-        return <div id={style["servicesDiv"]}>
+        return <div id="servicesDiv" className={style.servicesDiv}>
             <h1 id={style["myServicesTitle"]}>{title}</h1>
             <p id={style["myServicesDescription"]}>{description}</p>
             <div id={style["servicesListDiv"]}>

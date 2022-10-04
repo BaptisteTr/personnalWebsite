@@ -17,7 +17,7 @@ class LanguageButton extends React.Component<IProps, IState> {
     return(
         <LocalisationContext.Consumer>
           {({locale, toggleLocale}) => (
-              <a href="#" className={styles.button} onClick={toggleLocale}>
+              <a className={styles.button} onClick={toggleLocale}>
                 {locale.buttonLabel}
               </a>
           )}

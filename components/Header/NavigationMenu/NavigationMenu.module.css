@@ -2,19 +2,25 @@
 .topNav {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-around;
     padding: 0;
     margin: 0 auto;
+    width: 70%;
 }
 .button {
     background: #32699F;
-    padding: 32px 40px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    width: 100%;
     color: white;
     text-decoration: none;
     font-family: 'robotoregular', serif;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .button:hover {
@@ -37,8 +43,7 @@
 
 @media screen and (max-width: 990px) {
 
-    .button {
-        padding: 10px 35px;
+    .topNav {
+        width: 90%;
     }
-
 }

@@ -59,7 +59,7 @@ class Skills extends React.Component<IProps, IState> {
             title = "My skills";
         }
 
-        return <div id={style["skillsDiv"]}>
+        return <div id="skillsDiv" className={style.skillsDiv}>
             <h1 id={style["mySkillsTitle"]}>{title}</h1>
             <p id={style["mySkillsDescription"]}>{description}</p>
             <div id={style["skillsListDiv"]}>

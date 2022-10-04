@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createRef, forwardRef, Ref, useEffect, useImperativeHandle, useRef} from 'react';
 import style from './ContentSection.module.css';
 import Skills from "./Skills/Skills";
 import {CanvasSpace, Create, Line, Pt} from "pts";
@@ -8,10 +8,6 @@ import {Description, Skill} from "../../pages";
 type ContentSectionProps = {
     skills:Skill[],
     descriptions:Description[];
-}
-
-type IState = {
-
 }
 
 const colors = [
@@ -81,24 +77,67 @@ export function floatySpace(space: CanvasSpace) {
     space.bindMouse().bindTouch().play();
 }
 
-export class ContentSection extends React.Component<ContentSectionProps, IState> {
+const ContentSection = forwardRef<any,ContentSectionProps>((props, ref) => {
 
-    constructor(props: ContentSectionProps) {
-        super(props);
-    }
+    const servicesRef = useRef(null);
+    const skillsRef = useRef(null);
 
-    componentDidMount() {
+    useEffect(() => {
         let space = new CanvasSpace("#pts").setup({bgcolor: "#E6ECFF", retina: true, resize: true});
         floatySpace(space);
-    }
+    },[])
 
-    render() {
-        return <div id="canvasContainer" className={style.canvasContainer}>
+    useImperativeHandle(ref, () => ({
+        get services() {
+            return servicesRef.current;
+        },
+        get skills() {
+            return skillsRef.current;
+        }
+    }));
+
+    return <div id="canvasContainer" className={style.canvasContainer}>
             <canvas id="pts" className={style.canvas}/>
-            <div className={style.contentContainer}>
-                <Services descriptions={this.props.descriptions}/>
-                <Skills descriptions={this.props.descriptions}  skills={this.props.skills}/>
+            <div ref={servicesRef} className={style.contentContainer}>
+                <Services  descriptions={props.descriptions}/>
+                <div ref={skillsRef}/>
+                <Skills descriptions={props.descriptions} skills={props.skills}/>
             </div>
         </div>;
-    }
-}
+})
+
+ContentSection.displayName = "ContentSection";
+export default ContentSection;
+
+// const ContentSection = React.forwardRef((props :ContentSectionProps, ref) => {
+//     class ContentSection extends React.Component<ContentSectionProps> {
+//         private servicesRef: React.RefObject<unknown>;
+//         private skillsRef: React.RefObject<unknown>;
+//
+//         constructor(props: ContentSectionProps) {
+//             super(props);
+//
+//             this.servicesRef = createRef();
+//             this.skillsRef = createRef();
+//         }
+//
+//         componentDidMount() {
+//             let space = new CanvasSpace("#pts").setup({bgcolor: "#E6ECFF", retina: true, resize: true});
+//             floatySpace(space);
+//         }
+//
+//         render() {
+//             return <div id="canvasContainer" className={style.canvasContainer}>
+//                 <canvas id="pts" className={style.canvas}/>
+//                 <div className={style.contentContainer}>
+//                     <Services descriptions={this.props.descriptions}/>
+//                     <Skills descriptions={this.props.descriptions} skills={this.props.skills}/>
+//                 </div>
+//             </div>;
+//         }
+//     }
+//     return <ContentSection  descriptions={props.descriptions} skills={props.skills}/>
+// })
+//
+// ContentSection.displayName ="ContentSection";
+// export default ContentSection;

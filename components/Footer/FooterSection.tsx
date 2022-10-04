@@ -12,7 +12,7 @@ export const FooterSection: FunctionComponent<FooterSectionProps> = ({}) => {
 return <React.Fragment>
         <div className={style.footerSection}>
             <Contact/>
-            <a href="#">contact@baptistetrautmann.com</a>
+            <a href="mailto:contact@baptistetrautmann.com">contact@baptistetrautmann.com</a>
             <FooterInfos/>
         </div>
         <div className={style.blueFooter}>

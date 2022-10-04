@@ -9,7 +9,7 @@
     pointer-events: all;
 }
 
-#skillsDiv {
+.skillsDiv {
     display: flex;
     align-items: center;
     text-align: center;
@@ -110,7 +110,7 @@
 }
 
 @media screen and (max-width: 1296px) {
-    #skillsDiv {
+    .skillsDiv {
         width: 100%;
     }
 
@@ -137,14 +137,14 @@
         border-style: none;
     }
 
-    #skillsDiv {
+    .skillsDiv {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 672px) {
 
-    #skillsDiv {
+    .skillsDiv {
         width: fit-content;
     }
 }
