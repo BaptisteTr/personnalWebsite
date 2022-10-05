@@ -122,21 +122,21 @@ export const Contact: FunctionComponent = ({}) => {
                onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
                onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Nom" : "Name")}
                defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
-               style={{boxShadow: errorName ? '0px 0px 8px red' : ''}}
+               className={`${errorName ? style.inputError : ""}`}
         />
         <input id={style["contactEmailInput"]} type="text"
                onChange={(e)=>{setEmail(e.target.value)}}
                onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
                onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
                defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
-               style={{boxShadow: errorEmail ? '0px 0px 8px red' : ''}}
+               className={`${errorEmail ? style.inputError : ""}`}
         />
         <textarea id={style["contactMessageInput"]}  name="message"
                   onChange={(e)=>{setMessage(e.target.value)}}
                   onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
                   onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Votre message" : "Your message")}
                   defaultValue={localisation.locale === locales.francais ? "Votre message" : "Your message"}
-                  style={{boxShadow: errorMessage ? '0px 0px 8px red' : ''}}
+                  className={`${errorMessage ? style.inputError : ""}`}
         ></textarea>
         <div id={style["modal_and_submitDiv"]}>
             <Modal modal={modal} unSetModal={() => {setModal('')}}></Modal>

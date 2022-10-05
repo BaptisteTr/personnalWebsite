@@ -8,7 +8,7 @@ import {locales, LocalisationContext} from "../../../contexts/Locale";
 import {Description} from "../../../pages";
 
 export default {
-    title: 'Services',
+    title: 'Content/Services',
     component: Services,
 } as ComponentMeta<typeof Services>;
 

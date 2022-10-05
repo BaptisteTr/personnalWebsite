@@ -1,4 +1,4 @@
-import React, {createRef, forwardRef, Ref, useEffect, useImperativeHandle, useRef} from 'react';
+import React, {forwardRef, useEffect, useImperativeHandle, useRef} from 'react';
 import style from './ContentSection.module.css';
 import Skills from "./Skills/Skills";
 import {CanvasSpace, Create, Line, Pt} from "pts";
@@ -23,7 +23,7 @@ export function floatySpace(space: CanvasSpace) {
 
     space.add({
 
-        start: (bound) => {
+        start: () => {
 
             // Elements
             let count = window.innerWidth * 0.16;
@@ -66,7 +66,7 @@ export function floatySpace(space: CanvasSpace) {
 
             }
         },
-        action: function(type, x, y, evt) {
+        action: function(type, x, y) {
             if (type == "move") {
                 mouse.to(x, y);
             }

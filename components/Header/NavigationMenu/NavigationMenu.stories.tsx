@@ -10,8 +10,8 @@ export default {
     component: NavigationMenu,
 } as ComponentMeta<typeof NavigationMenu>;
 
-export const Primary: ComponentStory<typeof NavigationMenu> = () => <NavigationMenu/>
-export const English: ComponentStory<typeof NavigationMenu> = () => <NavigationMenu/>
+export const Primary: ComponentStory<typeof NavigationMenu> = () => <NavigationMenu scrollToContact={() => {}} scrollToHome={() => {}} scrollToProjects={() => {}} scrollToServices={() => {}} scrollToSkills={() => {}}/>
+export const English: ComponentStory<typeof NavigationMenu> = () => <NavigationMenu scrollToContact={() => {}} scrollToHome={() => {}} scrollToProjects={() => {}} scrollToServices={() => {}} scrollToSkills={() => {}}/>
 
 English.decorators = [withReactContext({
     Context: LocalisationContext,

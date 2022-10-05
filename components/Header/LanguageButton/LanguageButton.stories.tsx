@@ -1,6 +1,6 @@
 import React from 'react';
 import LanguageButton from './LanguageButton';
-import {ComponentStory} from "@storybook/react";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {withReactContext} from "storybook-react-context";
 import {locales, LocalisationContext} from "../../../contexts/Locale";
 
@@ -8,9 +8,9 @@ import {locales, LocalisationContext} from "../../../contexts/Locale";
 export default {
   title: 'Header/LanguageButton',
   component: LanguageButton,
-};
+} as ComponentMeta<typeof LanguageButton>;
 
-export const Francais: ComponentStory<typeof LanguageButton> = () => <LanguageButton/>
+export const Primary: ComponentStory<typeof LanguageButton> = () => <LanguageButton/>
 export const English: ComponentStory<typeof LanguageButton> = () => <LanguageButton/>
 
 English.decorators = [withReactContext({

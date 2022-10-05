@@ -89,14 +89,10 @@
     transition: all 100ms ease-in;
 }
 
-.skillLogo {
-    margin: 10px;
-}
-
 .skillTitle {
     color: #2B3487;
     margin-bottom: 20px;
-    margin-top: 0px;
+    margin-top: 0;
     pointer-events: all;
 }
 
@@ -107,6 +103,7 @@
     flex-grow:1;
     width: 406px;
     height:300px;
+    padding: 10px;
 }
 
 @media screen and (max-width: 1296px) {

@@ -5,7 +5,7 @@ import {PortfolioSection} from "../components/ContentSection/PortfolioSection/Po
 import ContentSection from "../components/ContentSection/ContentSection";
 import {FooterSection} from "../components/Footer/FooterSection";
 import {InferGetStaticPropsType} from "next";
-import React, {LegacyRef, MutableRefObject, useCallback, useRef} from "react";
+import React, {useCallback, useRef} from "react";
 
 export type Project = {
   id: number
@@ -138,7 +138,8 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
     <div>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Baptiste Trautmann</title>
+        <meta name="description" content="Je propose mes services de développeur freelance"/>
+        <title>Baptiste Trautmann - Développeur Freelance</title>
       </Head>
         <Header scrollToHome={scrollToHome} scrollToServices={scrollToServices} scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
         <div ref={homeRef} />

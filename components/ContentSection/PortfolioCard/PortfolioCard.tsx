@@ -24,7 +24,7 @@ export const PortfolioCard: FunctionComponent<PortfolioCardProps> = ({project}) 
     }
 
 return <div className={style.portfolioCard}>
-    <Image className={style.picture} loader={() => project.illustration} src={project.illustration} alt={project.title_fr+" picture"} width={450} height={223}/>
+    <Image className={style.picture} loader={() => project.illustration} unoptimized={true} src={project.illustration} alt={project.title_fr+" picture"} width={450} height={223}/>
     <h1 className={style.portfolioTitle}>{title}</h1>
     <div className={style.portfolioSeparator}/>
     <p className={style.portfolioDescription}>{description}</p>

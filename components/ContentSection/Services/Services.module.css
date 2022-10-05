@@ -71,15 +71,9 @@
     pointer-events: all;
 }
 
-.serviceLogo {
-    height: 50px;
-    width: 50px;
-    margin: 10px;
-}
-
 .serviceTitle {
     color: #2B3487;
-    margin: 0px 10px 20px;
+    margin: 0 10px 20px;
     pointer-events: all;
 }
 
@@ -90,6 +84,7 @@
     flex-grow:1;
     width: 406px;
     height:300px;
+    padding: 10px;
 }
 
 .serviceDescription {

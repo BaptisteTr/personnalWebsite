@@ -5,6 +5,7 @@ import styles from './InfoCard.module.css';
 import {ExteriorLinks} from "../../globalComponents/ExteriorLinks/ExteriorLinks";
 
 import {DownloadCVButton} from "../../globalComponents/DownloadCVButton/DownloadCVButton";
+import Image from "next/image";
 
 interface IProps {
 }
@@ -18,7 +19,7 @@ const Content = () =>
     let frcontent = <div className={styles.contentText}>
             <p className={styles["trade"]}>Ingénieur logiciel</p>
             <p className={styles["location"]}>Strasbourg, France</p>
-            <a className={styles["mail"]} href="#">contact@baptistetrautmann.com</a>
+            <a className={styles["mail"]} href="mailto:contact@baptistetrautmann.com">contact@baptistetrautmann.com</a>
         </div>;
 
     let engcontent = <div className={styles.contentText}>
@@ -42,7 +43,7 @@ class InfoCard extends React.Component<IProps, IState> {
     render() {
         return(
             <div className={styles.infocard}>
-                <img className={styles.error} src="/Portrait.png" alt="portrait image"/>
+                <Image className={styles.portrait} src="/Portrait.png" alt="portrait image" height="150px" width="150px"/>
                 <h1 className={styles.text}>Baptiste TRAUTMANN</h1>
                 <Content/>
                 <ExteriorLinks color="white"/>

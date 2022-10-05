@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Services.module.css';
 import {locales, LocalisationContext} from "../../../contexts/Locale";
 import {Description} from "../../../pages";
+import Image from "next/image";
 
 interface IProps {
     descriptions:Description[]
@@ -19,7 +20,7 @@ type ServicesListProps = {
 const ServicesList : React.FC<ServicesListProps> = ({title, logo, text}) => {
 
     return <div className={style.servicesList}>
-        <img className={style.serviceLogo} src={logo} alt={title + " logo"}/>
+        <Image className={style.serviceLogo} src={logo} alt={title + " logo"} width="50px" height="50px"/>
         <h1 className={style.serviceTitle}>{title}</h1>
         <p className={style.serviceDescription}>{text}</p>
     </div>

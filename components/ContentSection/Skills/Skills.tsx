@@ -2,6 +2,7 @@ import React from "react";
 import {locales, LocalisationContext} from "../../../contexts/Locale";
 import style from './Skills.module.css';
 import {Description, Skill as SkillT} from "../../../pages";
+import Image from "next/image";
 
 interface IProps {
     skills:SkillT[],
@@ -20,7 +21,7 @@ interface SkillListProps {
 const SkillList : React.FC<SkillListProps> = ({title, logo, skills}) => {
 
     return <div className={style.skillsList}>
-        <img className={style.skillLogo} src={logo} alt={title + " logo"}/>
+        <Image className={style.skillLogo} src={logo} alt={title + " logo"} width="50px" height="50px"/>
         <h1 className={style.skillTitle}>{title}</h1>
         {skills.map( (skill, key) => {
             return <span className={style.skillItem} key={key}>{skill.label}</span>
