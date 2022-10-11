@@ -3,7 +3,7 @@ import {PortfolioSection} from './PortfolioSection';
 
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 import {withReactContext} from "storybook-react-context";
-import {locales, LocalisationContext} from "../../../contexts/Locale";
+import {locales, LocalisationContext} from "../../contexts/Locale";
 
 export default {
     title: 'Content/PortfolioSection',
