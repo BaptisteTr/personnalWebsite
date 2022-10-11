@@ -1,30 +1,123 @@
-.footerSection {
-    background-color: #E6ECFF;
+.footerContainer {
+    background-color: #1D1D1D;
+    height: 90vh;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.footerLeftPanel{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    gap: 20px;
+    flex-direction: column;
+    width: 50%;
+    z-index: 1;
 }
 
-.footerSection > a{
-    color: #32699F;
+.footerRightPanel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
 }
 
-.blueFooter{
-    background-color: #32699F;
-    height: 50px;
+.map{
+    height: 750px;
+    width: 800px;
+    background: right no-repeat url("../../public/map.png");
+    z-index: 1;
     position: relative;
 }
 
-.blueFooter > p {
-    margin: auto;
+.contactInfos {
+    background-color: rgba(46,59,192,75%);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-left: 10%;
+    margin-top: 10%;
+    padding: 20px;
+}
+
+.contactInfos > p {
+    color: white;
+    margin: 5px;
+}
+
+.contactInfos > a {
+    text-decoration: none;
+    color : #00BF94;
+    margin: 5px;
+}
+
+#mapPointer{
+    border-radius: 100px;
+    z-index: 1;
+}
+
+#mapPointerCircle {
     position:absolute;
-    width : 1280px;
-    top: 50%;
-    left: 15%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    right: 85px;
+    top: 275px;
+}
+
+#mapPointerAngle {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    border: 34px solid transparent;
+    border-top: 65px solid #2E3BC0;
+    transform: translateX(-50%);
+}
+
+.blueFooter{
+    background-color: #0064E1;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blueFooter > p {
+    width : 80vw;
+    color : white;
+}
+
+.bigBackgroundWord {
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    z-index: 0;
+    font-size: 30rem;
+    left: 2vw;
+    top : 2vh;
+    font-weight: 700;
+    font-family: 'roboto', serif;
+    transform: rotate(20deg);
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+}
+
+
+.footerContainer > p {
+    color:white;
+    font-size: 20px;
+    font-family: 'robotoregular', serif;
+    align-self: flex-start;
+}
+
+.footerContainer > h1 {
+    width: 100%;
+    color: #00BF94;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 0;
+    font-size: 4.0rem;
+    line-height: 5.0rem;
 }
 
 @media screen and (max-width: 990px) {

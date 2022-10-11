@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Header from "../components/Header/Header";
+import Menu from "../components/Menu/Menu";
 import HomeSection from "../components/HomeSection/HomeSection";
-import {PortfolioSection} from "../components/ContentSection/PortfolioSection/PortfolioSection";
-import ContentSection from "../components/ContentSection/ContentSection";
+import {PortfolioSection} from "../components/PortfolioSection/PortfolioSection";
+import SkillsSection from "../components/SkillsSection/SkillsSection";
 import {FooterSection} from "../components/Footer/FooterSection";
 import {InferGetStaticPropsType} from "next";
 import React, {useCallback, useRef} from "react";
@@ -47,9 +47,11 @@ export const getStaticProps = async() => {
   {
         method: 'get',
         headers: new Headers({
-          'Authorization': `Bearer ${DIRECTUS_TOKEN}`
+            'Authorization': `Bearer ${DIRECTUS_TOKEN}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         })
-      })
+      });
   const result: {data : Project[]} = await res.json()
   const projects : Project[] = result.data;
   result.data.forEach(p => p.illustration = `${DIRECTUS_URL}/assets/${p.illustration}`)
@@ -87,28 +89,10 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
 
     const sectionReferences = useRef(null);
 
-    const scrollToHome =  useCallback(
-        () => {
-            if(sectionReferences && sectionReferences.current ) {
-                // @ts-ignore
-                homeRef.current.scrollIntoView();
-            }
-        },
-        []
-    );
-
-    const scrollToServices = useCallback(
-        () => {
-            // @ts-ignore
-            sectionReferences.current.services.scrollIntoView();
-        },
-        []
-    );
-
     const scrollToSkills = useCallback(
         () => {
             // @ts-ignore
-            sectionReferences.current.skills.scrollIntoView();
+            skillsRef.current.scrollIntoView();
         },
         []
     )
@@ -131,6 +115,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
 
     const homeRef = useRef(null);
     const portfolioRef = useRef(null);
+    const skillsRef = useRef(null);
     const footerRef = useRef(null);
 
     // @ts-ignore
@@ -141,14 +126,21 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
         <meta name="description" content="Je propose mes services de développeur freelance"/>
         <title>Baptiste Trautmann - Développeur Freelance</title>
       </Head>
-        <Header scrollToHome={scrollToHome} scrollToServices={scrollToServices} scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
-        <div ref={homeRef} />
-        <HomeSection descriptions={descriptions.filter(d => d.section_key.startsWith("presentation"))}/>
-        <ContentSection ref={sectionReferences} skills={skills} descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services") )}/>
-        <div ref={portfolioRef}/>
-        <PortfolioSection projects={projects}/>
-        <div ref={footerRef}/>
-        <FooterSection/>
+        <div className="layout" >
+            <div className="menu">
+                <Menu scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
+            </div>
+            <div className="content" >
+                <div ref={homeRef} />
+                <HomeSection descriptions={descriptions.filter(d => d.section_key.startsWith("presentation"))}/>
+                <div ref={skillsRef}/>
+                <SkillsSection skills={skills} descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services") )}/>
+                <div ref={portfolioRef}/>
+                <PortfolioSection projects={projects}/>
+                <div ref={footerRef}/>
+                <FooterSection/>
+            </div>
+        </div>
     </div>
     )
 }

@@ -6,7 +6,7 @@ import { ComponentMeta , ComponentStory} from '@storybook/react';
 import { withReactContext } from 'storybook-react-context';
 
 export default {
-    title: 'Header/NavigationMenu',
+    title: 'Menu/NavigationMenu',
     component: NavigationMenu,
 } as ComponentMeta<typeof NavigationMenu>;
 

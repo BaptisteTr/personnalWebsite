@@ -1,16 +1,14 @@
 .cvButton {
     box-sizing: border-box;
-    border: 3px solid #32699F;
-    border-radius: 100px;
-    background-color: #FFFFFF;
+    border: 2px solid;
     height: 53px;
     width : fit-content;
     transition: all 150ms ease-in;
-    color : #32699F;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    margin: auto;
 }
 
 .cvButton:hover {
@@ -20,23 +18,23 @@
 .cvButton > span {
     font-family: 'Inter', serif;
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
     line-height: 24px;
     text-align: center;
     margin: 0 20px;
 }
 
-.whiteCVButton {
+.greenCVButton {
     background: transparent;
-    border-color: #FFFFFF;
-    color:#FFFFFF;
+    border-color: #00BF94;
+    color:#00BF94;
 }
 
-.whiteCVButton:hover {
-    background-color:#FFFFFF;
-    border-color: #FFFFFF;
-    color:#32699F;
+.greenCVButton:hover {
+    background-color:#00BF94;
+    border-color: #00BF94;
+    color:#414141;
 }
 
 .blueCVButton {

@@ -1,0 +1,39 @@
+
+.colors {
+    --menu-blue:#0064E1;
+}
+
+
+.headerBox {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0;
+    background: var(--menu-blue);
+    height: 100vh;
+    width: 13rem;
+    min-height: min-content;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+
+.menuBox {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0064E1;
+}
+
+.headerBox > button {
+    flex: 0 1 auto;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 990px) {
+
+    .headerBox {
+        flex-direction: column;
+        position: relative;
+    }
+}

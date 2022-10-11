@@ -1,5 +1,8 @@
 #contactDiv{
-    width: 650px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #contactForm {
@@ -7,31 +10,56 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-width: 650px;
     gap : 5px;
-}
-
-#contactForm > p {
-    color:#32699F;
-    font-size: 20px;
-    font-family: 'robotoregular', serif;
+    width: 100%;
 }
 
 #contactNameInput{
     width: 100%;
     height: 38px;
-    background-color: #ADC1EC;
+    background-color: #2b2b2b;
     border-style: none;
-    color : white;
+    color : #606060;
     font-size: 15px;
     font-family: 'robotoregular', serif;
+}
+
+.inputContainer {
+    width: 100%;
+    position: relative;
+}
+
+.inputContainer :focus {
+    outline-color: transparent;
+    outline-style: none;
+}
+
+
+.inputContainer > *:focus + .separator {
+    transform: scaleX(1) ;
+    opacity: 1;
+}
+
+.separator {
+    position:absolute;
+    bottom:2px;
+    height:3px;
+    width: 100%;
+    background: #00BF94;
+    display: block;
+    transform: scaleX(0);
+    transform-origin: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;
 }
 
 #contactEmailInput{
     width: 100%;
     height: 38px;
-    background-color: #ADC1EC;
+    background-color: #2b2b2b;
     border-style: none;
-    color : white;
+    color : #606060;
     font-size: 15px;
     font-family: 'robotoregular', serif;
 }
@@ -42,33 +70,34 @@
     width: 100%;
     resize:vertical;
     min-height: 190px;
-    background-color: #ADC1EC;
+    background-color: #2b2b2b;
     border-style: none;
     height: 190px;
-    color : white;
+    color : #606060;
     padding-top: 10px;
 }
 
 #contactSubmit{
     align-self: flex-end;
     box-sizing: border-box;
-    border: 3px solid #32699F;
-    border-radius: 100px;
+    border: 2px solid #00BF94;
     background-color:transparent;
     height: 45px;
     width: 130px;
     transition: all 150ms ease-in;
-    color: #32699F;
+    color: #00BF94;
     font-size : 16px;
     font-family: 'robotobold', serif;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 #contactSubmit:hover {
-    background-color: #32699F;
-    border-color: #32699F;
+    background-color: #00BF94;
+    border-color: #00BF94;
     color:#FFFFFF;
-    transition: all 150ms ease-in;
+
+    transition: all 300ms ease-in;
 }
 
 #modal_and_submitDiv {
@@ -108,6 +137,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    z-index: 5;
 }
 
 .modal__close_btn svg {
@@ -122,7 +152,9 @@
 }
 
 .inputError {
-    box-shadow: 0 0 8px red;
+    background-color: red;
+    transform: scaleX(1) ;
+    opacity: 1;
 }
 
 @media screen and (max-width: 672px) {

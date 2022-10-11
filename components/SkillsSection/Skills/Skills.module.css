@@ -1,0 +1,142 @@
+
+
+.skillsDiv {
+    display: flex;
+    width: 80%;
+    box-shadow: 3px 3px 5px rgba(0,0,0,50%);
+    border-top: solid 3px;
+    transition: all 150ms ease-in;
+}
+
+.skillsDiv:hover {
+
+    box-shadow: 0 0 10px rgba(255,255,255,50%);
+}
+
+.skillLeftPanel {
+
+    background-color: #1D1D1D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    width: 20%;
+    min-width: 150px;
+}
+
+.skillLeftPanel > p {
+    text-align: center;
+}
+
+.skillRightPanel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+    background-color: #1D1D1D;
+}
+
+.logo {
+    display: flex;
+    height: 80px;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+}
+
+.blue {
+    background-color: #0099D7;
+}
+
+.blue_text {
+    color: #0099D7;
+}
+
+.blue_border {
+    border-color: #0099D7;
+}
+
+.lightBlue {
+    background-color: #00ADB8;
+}
+
+.lightBlue_text {
+    color: #00ADB8;
+}
+
+.lightBlue_border {
+    border-color: #00ADB8;
+}
+
+.green {
+    background-color: #00BF94;
+}
+
+.green_text {
+    color: #00BF94;
+}
+
+.green_border {
+    border-color: #00BF94;
+}
+
+.skillItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    height: 2rem;
+    font-family: 'Roboto', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    cursor:default;
+}
+
+@media screen and (max-width: 1296px) {
+    .skillsDiv {
+        width: 100%;
+    }
+
+    .skillsList {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+
+    #skillsListDiv {
+        flex-direction: column;
+    }
+
+    #skillsListDiv > div:first-of-type {
+        border-style: none;
+    }
+
+    #skillsListDiv > div:last-of-type {
+        border-style: none;
+    }
+
+    #skillsListDiv {
+        border-style: none;
+    }
+
+    .skillsDiv {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 672px) {
+
+    .skillsDiv {
+        width: fit-content;
+    }
+}

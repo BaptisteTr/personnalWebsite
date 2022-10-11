@@ -1,25 +1,22 @@
 
 .button {
     box-sizing: border-box;
-    border: 3px solid #FFFFFF;
-    border-radius: 100px;
-    background-color: #32699F;
+    border: 1px solid #FFFFFF;
     transition: all 150ms ease-in;
     color: #FFFFFF;
     font-family: 'Inter', serif;
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     text-align: center;
-    padding: 12px;
-    margin: 0 40px;
+    padding: 8px;
+    width: 100px;
     cursor:pointer;
 }
 .button:hover {
     background-color: #FFFFFF;
     border-color: #FFFFFF;
-    color:#32699F;
+    color:#0064E1;
     transition: all 150ms ease-in;
 }
 

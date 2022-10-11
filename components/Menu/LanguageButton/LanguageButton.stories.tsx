@@ -6,7 +6,7 @@ import {locales, LocalisationContext} from "../../../contexts/Locale";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Header/LanguageButton',
+  title: 'Menu/LanguageButton',
   component: LanguageButton,
 } as ComponentMeta<typeof LanguageButton>;
 

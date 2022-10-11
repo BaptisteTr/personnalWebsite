@@ -23,8 +23,6 @@ class Presentation extends React.Component<IProps, IState> {
 
     render() {
 
-
-
         let { locale } = this.context;
         let title,description: string|undefined;
         if(locale === locales.francais) {
@@ -34,7 +32,6 @@ class Presentation extends React.Component<IProps, IState> {
             description = this.props.descriptions.find(d => d.section_key === "presentation")?.description_eng
             title = "Freelance web Developer"
         }
-
 
         return <React.Fragment>
             <div className={style.backgroundDiv} style={{backgroundImage: `url(/background.jpg)`}}></div>

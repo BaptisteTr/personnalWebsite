@@ -12,7 +12,7 @@ export const DownloadCVButton: FunctionComponent<DownloadCVButtonProps> = ({colo
     const localisation = useContext(LocalisationContext);
     let content;
 
-    let colorStyle : string = color === "white" ? style.whiteCVButton : style.blueCVButton;
+    let colorStyle : string = color === "green" ? style.greenCVButton : style.blueCVButton;
     const classes = `${colorStyle} ${style.cvButton}`;
 
     if(localisation.locale === locales.francais) {

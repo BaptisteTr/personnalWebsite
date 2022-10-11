@@ -112,36 +112,45 @@ export const Contact: FunctionComponent = ({}) => {
     }
 
     const localisation = useContext(LocalisationContext);
-    let title: string = localisation.locale === locales.francais ? "Posez moi vos question!" : "Ask me anything!";
 
-    return <div id={style["contactDiv"]}>
+    return <>
     <form id={style["contactForm"]} onSubmit={(e) => {handleSubmit(e)}} >
-        <p>{title}</p>
-        <input id={style["contactNameInput"]} type="text"
-               onChange={(e)=>{setName(e.target.value)}}
-               onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
-               onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Nom" : "Name")}
-               defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
-               className={`${errorName ? style.inputError : ""}`}
-        />
-        <input id={style["contactEmailInput"]} type="text"
-               onChange={(e)=>{setEmail(e.target.value)}}
-               onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
-               onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
-               defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
-               className={`${errorEmail ? style.inputError : ""}`}
-        />
-        <textarea id={style["contactMessageInput"]}  name="message"
-                  onChange={(e)=>{setMessage(e.target.value)}}
-                  onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
-                  onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Votre message" : "Your message")}
-                  defaultValue={localisation.locale === locales.francais ? "Votre message" : "Your message"}
-                  className={`${errorMessage ? style.inputError : ""}`}
-        ></textarea>
+        <p>I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.</p>
+        <div className={style.inputContainer}>
+            <input id={style["contactNameInput"]} type="text"
+                   onChange={(e)=>{setName(e.target.value)}}
+                   onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
+                   onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Nom" : "Name")}
+                   defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
+            />
+            <span className={style.separator+" "+`${errorName ? style.inputError : ""}`}/>
+        </div>
+        <div className={style.inputContainer}>
+            <input id={style["contactEmailInput"]} type="text"
+                   onChange={(e)=>{setEmail(e.target.value)}}
+                   onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
+                   onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
+                   defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
+            />
+            <span className={style.separator+" "+`${errorEmail ? style.inputError : ""}`}/>
+        </div>
+
+        <div className={style.inputContainer}>
+            <textarea id={style["contactMessageInput"]}  name="message"
+                      onChange={(e)=>{setMessage(e.target.value)}}
+                      onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
+                      onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Votre message" : "Your message")}
+                      defaultValue={localisation.locale === locales.francais ? "Votre message" : "Your message"}
+            ></textarea>
+            <span className={style.separator+" "+`${errorMessage ? style.inputError : ""}`} />
+
+        </div>
+
+        <span className={style.separator}> </span>
         <div id={style["modal_and_submitDiv"]}>
             <Modal modal={modal} unSetModal={() => {setModal('')}}></Modal>
             <input id={style["contactSubmit"]} type="submit" value={localisation.locale === locales.francais ? "Envoyer" : "Send"}/>
         </div>
     </form>
-</div>;
+</>;
 }
