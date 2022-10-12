@@ -137,4 +137,8 @@
         height: fit-content;
         gap: 20px;
     }
+
+    .footerContainer > h1 {
+        margin-top: 25%;
+    }
 }

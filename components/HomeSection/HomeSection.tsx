@@ -4,11 +4,11 @@ import style from './HomeSection.module.css';
 import {Description} from "../../pages";
 import {locales, LocalisationContext} from "../../contexts/Locale";
 import InfoCard from "./InfoCard/InfoCard";
-import Image from "next/image";
 import {CanvasSpace, Create, Line, Pt} from "pts";
 
 interface IProps {
     descriptions:Description[]
+    scrollToContact: () => void,
 }
 
 interface IState {
@@ -100,10 +100,12 @@ class HomeSection extends React.Component<IProps, IState> {
 
     componentDidMount() {
 
-        let space = new CanvasSpace("#pts").setup({bgcolor: "#1D1D1D", retina: true, resize: true});
-        floatySpace(space);
+        if(window.innerWidth > 672) {
+            let space = new CanvasSpace("#pts").setup({bgcolor: "#1D1D1D", retina: true, resize: true});
+            floatySpace(space);
 
-        window.addEventListener('resize', this.updateDimensions);
+            window.addEventListener('resize', this.updateDimensions);
+        }
     }
 
     render() {
@@ -128,7 +130,7 @@ class HomeSection extends React.Component<IProps, IState> {
                     <h1 className={style.homeName}>Baptiste TRAUTMANN</h1>
                     <h2 className={style.homeTitle}>{title}</h2>
                     <p className={style.homeDescription}>{description}</p>
-                    <a href="#" className={style.contactButton}>{buttonText}</a>
+                    <a href="" onClick={e => {e.preventDefault(); this.props.scrollToContact()}} className={style.contactButton}>{buttonText}</a>
 
                 </div>
             </div>

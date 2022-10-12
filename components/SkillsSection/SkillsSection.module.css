@@ -73,4 +73,8 @@
     .contentSectionContainer {
         height: fit-content;
     }
+
+    .contentSectionContainer > h1 {
+        margin-top: 20%;
+    }
 }

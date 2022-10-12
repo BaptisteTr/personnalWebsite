@@ -19,4 +19,4 @@ let descriptions : Description[] = [
     }
 ]
 
-export const Primary: ComponentStory<typeof HomeSection> = () => <HomeSection descriptions={descriptions}/>
+export const Primary: ComponentStory<typeof HomeSection> = () => <HomeSection descriptions={descriptions} scrollToContact={() => {}}/>

@@ -141,7 +141,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
             </div>
             <div className="content" >
                 <div ref={homeRef} />
-                <HomeSection descriptions={descriptions.filter(d => d.section_key.startsWith("presentation"))}/>
+                <HomeSection descriptions={descriptions.filter(d => d.section_key.startsWith("presentation"))} scrollToContact={scrollToContact}/>
                 <div ref={skillsRef}/>
                 <SkillsSection skills={skills} descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services") )}/>
                 <div ref={portfolioRef}/>

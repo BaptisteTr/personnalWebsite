@@ -94,6 +94,7 @@
     font-family: 'robotobold', serif;
     cursor: pointer;
     margin-top: 10px;
+    margin-right: 10%;
 }
 
 #contactSubmit:hover {
@@ -166,4 +167,7 @@
         width: 98%;
     }
 
+    #contactForm > p {
+        width: 90%;
+    }
 }
