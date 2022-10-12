@@ -1,15 +1,16 @@
 import React, {FunctionComponent, useContext} from 'react';
-import style from './FooterSection.module.css';
+import style from './ContactSection.module.css';
 import {Contact} from "./ContactForm/Contact";
 import Image from "next/image";
-import {ExteriorLinks} from "../globalComponents/ExteriorLinks/ExteriorLinks";
 import {DownloadCVButton} from "../globalComponents/DownloadCVButton/DownloadCVButton";
 import {locales, LocalisationContext} from "../../contexts/Locale";
+import {Description} from "../../pages";
 
 type FooterSectionProps = {
+    description : Description | undefined;
 }
 
-export const FooterSection: FunctionComponent<FooterSectionProps> = ({}) => {
+export const ContactSection: FunctionComponent<FooterSectionProps> = ({description}) => {
 
 
     const localisation = useContext(LocalisationContext);
@@ -22,7 +23,7 @@ return <React.Fragment>
 
             <h1>{title}</h1>
             <div className={style.footerLeftPanel}>
-                <Contact/>
+                <Contact description={description}/>
             </div>
 
             <div className={style.footerRightPanel}>
@@ -39,9 +40,6 @@ return <React.Fragment>
                     </div>
                 </div>
             </div>
-        </div>
-        <div className={style.blueFooter}>
-            <p className={style.footerText}>Développé par Baptiste Trautmann 2022</p>
         </div>
     </React.Fragment>;
 }

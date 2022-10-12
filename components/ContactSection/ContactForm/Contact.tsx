@@ -1,6 +1,7 @@
 import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
 import style from './Contact.module.css';
 import {locales, LocalisationContext} from "../../../contexts/Locale";
+import {Description} from "../../../pages";
 
 type ModalProps = {
     modal:string,
@@ -45,8 +46,11 @@ const Modal : FunctionComponent<ModalProps> = ({ modal, unSetModal }) => {
     )
 }
 
+type ContactProps = {
+    description:Description | undefined
+}
 
-export const Contact: FunctionComponent = ({}) => {
+export const Contact: FunctionComponent<ContactProps> = ({description}) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -55,6 +59,7 @@ export const Contact: FunctionComponent = ({}) => {
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const [modal, setModal] = useState('');
+    const localisation = useContext(LocalisationContext);
 
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -88,9 +93,18 @@ export const Contact: FunctionComponent = ({}) => {
                     setErrorName(false)
                     setErrorEmail(false)
                     setErrorMessage(false)
-                    setModal("Message envoyé! Je vous recontacte dans les plus brefs délais.")
+                    if(localisation.locale == locales.francais) {
+                        setModal("Message envoyé! Je vous recontacte dans les plus brefs délais.")
+                    } else {
+                        setModal("Message sent! I will contact you back as soon as possible.")
+                    }
                 } else {
-                    setModal("Erreur lors de l'envoi de mail.")
+
+                    if(localisation.locale == locales.francais) {
+                        setModal("Erreur lors de l'envoi de mail.")
+                    } else {
+                        setModal("There was an error during the mail")
+                    }
                 }
             })
         }
@@ -111,11 +125,10 @@ export const Contact: FunctionComponent = ({}) => {
         }
     }
 
-    const localisation = useContext(LocalisationContext);
 
     return <>
     <form id={style["contactForm"]} onSubmit={(e) => {handleSubmit(e)}} >
-        <p>I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.</p>
+        <p>{localisation.locale === locales.francais ? description?.description_fr : description?.description_eng}</p>
         <div className={style.inputContainer}>
             <input id={style["contactNameInput"]} type="text"
                    onChange={(e)=>{setName(e.target.value)}}

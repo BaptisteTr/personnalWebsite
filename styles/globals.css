@@ -9,6 +9,7 @@ body {
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -60,4 +61,14 @@ a {
   .layout {
     display: block;
   }
+
+
+}
+
+@media screen and (max-width: 672px) {
+
+  html {
+    font-size: 45%;
+  }
+
 }

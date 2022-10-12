@@ -3,9 +3,11 @@ import Menu from "../components/Menu/Menu";
 import HomeSection from "../components/HomeSection/HomeSection";
 import {PortfolioSection} from "../components/PortfolioSection/PortfolioSection";
 import SkillsSection from "../components/SkillsSection/SkillsSection";
-import {FooterSection} from "../components/Footer/FooterSection";
+import {ContactSection} from "../components/ContactSection/ContactSection";
 import {InferGetStaticPropsType} from "next";
-import React, {useCallback, useRef, useState} from "react";
+import React, {useCallback, useContext, useRef, useState} from "react";
+import style from "../components/ContactSection/ContactSection.module.css";
+import {locales, LocalisationContext} from "../contexts/Locale";
 
 export type Project = {
   id: number
@@ -88,7 +90,6 @@ export const getStaticProps = async() => {
 const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof getStaticProps>) => {
 
     const [isMenuVisible, setMenuVisible] = useState(false);
-    const sectionReferences = useRef(null);
 
     const scrollToSkills = useCallback(
         () => {
@@ -121,6 +122,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
     const portfolioRef = useRef(null);
     const skillsRef = useRef(null);
     const footerRef = useRef(null);
+    const localisation = useContext(LocalisationContext);
 
     // @ts-ignore
     return (
@@ -143,7 +145,10 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
                 <div ref={portfolioRef}/>
                 <PortfolioSection projects={projects}/>
                 <div ref={footerRef}/>
-                <FooterSection/>
+                <ContactSection description={descriptions.find(d => d.section_key === "contact")}/>
+                <div className={style.blueFooter}>
+                    <p className={style.footerText}>{localisation.locale === locales.francais ? "Développé par" : "Developed by"} Baptiste Trautmann 2022</p>
+                </div>
             </div>
         </div>
     </div>

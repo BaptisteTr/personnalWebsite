@@ -82,7 +82,15 @@ export function floatySpace(space: CanvasSpace) {
     space.bindMouse().bindTouch().play();
 }
 
+
+
 class HomeSection extends React.Component<IProps, IState> {
+    state = { width: 0, height: 0 };
+    updateDimensions = () => {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+        let space = new CanvasSpace("#pts").setup({bgcolor: "#1D1D1D", retina: true, resize: true});
+        floatySpace(space);
+    };
     constructor(props: IProps) {
         super(props);
     }
@@ -94,6 +102,8 @@ class HomeSection extends React.Component<IProps, IState> {
 
         let space = new CanvasSpace("#pts").setup({bgcolor: "#1D1D1D", retina: true, resize: true});
         floatySpace(space);
+
+        window.addEventListener('resize', this.updateDimensions);
     }
 
     render() {
@@ -113,7 +123,6 @@ class HomeSection extends React.Component<IProps, IState> {
 
         return <div className={style.homeContainer}>
             <canvas id="pts" className={style.canvas}/>
-
             <div className={style.infoSection}>
                 <div className={style.homeSection}>
                     <h1 className={style.homeName}>Baptiste TRAUTMANN</h1>

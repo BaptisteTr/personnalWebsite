@@ -18,7 +18,8 @@
 
 .cardContent {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -31,34 +32,37 @@
 .portfolioTitle {
     text-align: center;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 5rem;
     color: #00BF94;
     margin-top: 2px;
     margin-bottom: 10%;
+    width: 100%;
 }
 
 .portfolioDescription {
-    font-size: 16px;
+    font-size: 2rem;
     text-align: center;
     margin-bottom: inherit;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
     color:white;
     margin-top: 5px;
+    width: 100%;
 }
 
 .portfolioTechs {
     display : flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .portfolioTech {
     color : #0099D7;
-    font-size: 16px;
+    font-size: 2rem;
     text-align: center;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .portfolioButton {
@@ -67,8 +71,8 @@
     width: 100px;
     transition: all 150ms ease-in;
     color: #00BF94;
-    font-size : 15px;
-    padding: 12px;
+    font-size : 2rem;
+    padding: 1rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +80,7 @@
 }
 .portfolioButton:hover {
     background-color: #00BF94;
-    color:#E6ECFF;
+    color:black;
     transition: all 150ms ease-in;
 }
 
@@ -84,7 +88,6 @@
     display: flex;
     justify-content: space-around;
     width: 80%;
-    margin-top: 20%;
 
 }
 
