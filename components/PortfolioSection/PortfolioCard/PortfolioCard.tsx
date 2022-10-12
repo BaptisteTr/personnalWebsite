@@ -3,8 +3,6 @@ import React, {FunctionComponent, useContext} from 'react';
 import style from './PortfolioCard.module.css';
 import {locales, LocalisationContext} from "../../../contexts/Locale";
 import {Project} from "../../../pages";
-import Image from "next/image";
-import {background} from "@storybook/theming";
 
 type PortfolioCardProps = {
     project : Project

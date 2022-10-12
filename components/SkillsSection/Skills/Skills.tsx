@@ -47,11 +47,11 @@ class Skills extends React.Component<IProps, IState> {
                 <div className={style.logo+" "+color} >
                     <Image src={this.props.logo} alt={"logo skills"} height={"50px"} width={"50px"} />
                 </div>
-                <p className={text_color}>{this.props.title}</p>
+                <p className={style.skillTitle+" "+text_color}>{this.props.title}</p>
             </div>
             <div className={style.skillRightPanel}>
                 {this.props.skills.map(s => {
-                        return <span className={style.skillItem} key={s.id}>{s.label}</span>
+                        return <span className={style.skillItem+" "+text_color} key={s.id}>{s.label}</span>
                     })
                 }
             </div>

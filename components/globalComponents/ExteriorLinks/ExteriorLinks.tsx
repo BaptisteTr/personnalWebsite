@@ -18,9 +18,9 @@ export const ExteriorLinks: FunctionComponent<ExteriorLinksProps> = ({color}) =>
     }
 
     return <div className={styles.infoLinks}>
-        <a href="https://www.linkedin.com/in/baptiste-trautmann-268366158/"><Image src={linkedinIcon} alt="Linkedin logo" width={40} height={40}/></a>
-        <a href="https://www.malt.fr/profile/baptistetrautmann"><Image src={maltIcon} alt="Malt logo" width={40} height={40}/></a>
-        <a href="https://github.com/BaptisteTr"><Image src={githubIcon} alt="Github logo" width={40} height={40}/></a>
+        <a href="https://www.linkedin.com/in/baptiste-trautmann-268366158/"><Image src={linkedinIcon} alt="Linkedin logo" width={30} height={30}/></a>
+        <a href="https://www.malt.fr/profile/baptistetrautmann"><Image src={maltIcon} alt="Malt logo" width={30} height={30}/></a>
+        <a href="https://github.com/BaptisteTr"><Image src={githubIcon} alt="Github logo" width={30} height={30}/></a>
     </div>;
 
 }

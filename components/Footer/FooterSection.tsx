@@ -39,9 +39,9 @@ return <React.Fragment>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
         <div className={style.blueFooter}>
-            <p>Développé par Baptiste Trautmann 2022</p>
+            <p className={style.footerText}>Développé par Baptiste Trautmann 2022</p>
         </div>
     </React.Fragment>;
 }

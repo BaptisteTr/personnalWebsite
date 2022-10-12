@@ -3,7 +3,8 @@
     display: flex;
     width:100%;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 5%;
 }
 
 .infoLinks span {

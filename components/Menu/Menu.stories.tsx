@@ -8,4 +8,4 @@ export default {
     component: Menu,
 } as ComponentMeta<typeof Menu>;
 
-export const Primary: ComponentStory<typeof Menu> = () => <Menu scrollToContact={() => {}} scrollToProjects={() => {}} scrollToSkills={() => {}}/>
+export const Primary: ComponentStory<typeof Menu> = () => <Menu scrollToContact={() => {}} scrollToProjects={() => {}} scrollToSkills={() => {}} isMenuVisible={true} setMenuVisible={()=>{}}/>

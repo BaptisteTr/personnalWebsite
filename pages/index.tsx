@@ -5,7 +5,7 @@ import {PortfolioSection} from "../components/PortfolioSection/PortfolioSection"
 import SkillsSection from "../components/SkillsSection/SkillsSection";
 import {FooterSection} from "../components/Footer/FooterSection";
 import {InferGetStaticPropsType} from "next";
-import React, {useCallback, useRef} from "react";
+import React, {useCallback, useRef, useState} from "react";
 
 export type Project = {
   id: number
@@ -87,12 +87,14 @@ export const getStaticProps = async() => {
 
 const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof getStaticProps>) => {
 
+    const [isMenuVisible, setMenuVisible] = useState(false);
     const sectionReferences = useRef(null);
 
     const scrollToSkills = useCallback(
         () => {
             // @ts-ignore
             skillsRef.current.scrollIntoView();
+            setMenuVisible(false);
         },
         []
     )
@@ -101,6 +103,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
         () => {
             // @ts-ignore
             portfolioRef.current.scrollIntoView();
+            setMenuVisible(false);
         },
         []
     )
@@ -109,6 +112,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
         () => {
             // @ts-ignore
             footerRef.current.scrollIntoView();
+            setMenuVisible(false);
         },
         []
     )
@@ -127,8 +131,9 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
         <title>Baptiste Trautmann - Développeur Freelance</title>
       </Head>
         <div className="layout" >
+
             <div className="menu">
-                <Menu scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
+                <Menu setMenuVisible={setMenuVisible} isMenuVisible={isMenuVisible} scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
             </div>
             <div className="content" >
                 <div ref={homeRef} />

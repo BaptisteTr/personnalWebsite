@@ -18,7 +18,7 @@
 
 .homeName {
     color: white;
-    font-size: 3rem;
+    font-size: 5rem;
     margin: 0;
     pointer-events: all;
     backdrop-filter: blur(2px);
@@ -26,7 +26,7 @@
 
 .homeTitle {
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 0;
     pointer-events: all;
     backdrop-filter: blur(2px);
@@ -35,6 +35,7 @@
 .homeDescription {
     color: #0099D7;
     pointer-events: all;
+    font-size: 1.8rem;
     backdrop-filter: blur(2px);
 }
 
@@ -99,4 +100,20 @@
     height: 100%;
     z-index: 0;
     background-color: #1D1D1D;
+}
+
+@media screen and (max-width: 990px) {
+
+    .homeContainer{
+        flex-wrap: wrap;
+    }
+
+    .infoSection {
+        width: 100%;
+    }
+
+    .infoCardSection {
+        width: 100%;
+        align-items: center;
+    }
 }

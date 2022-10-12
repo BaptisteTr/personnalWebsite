@@ -91,14 +91,18 @@
     align-items: center;
     background-color: rgba(255,255,255,0.15);
     border-radius: 10px;
-    height: 2rem;
+    height: fit-content;
     font-family: 'Roboto', serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    color: white;
-    padding: 10px 10px 10px 10px;
+    font-size: 2rem;
+    padding: 1rem 1rem 1rem 1rem;
     cursor:default;
+}
+
+.skillTitle {
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 1296px) {
@@ -137,6 +141,6 @@
 @media screen and (max-width: 672px) {
 
     .skillsDiv {
-        width: fit-content;
+        height: fit-content;
     }
 }

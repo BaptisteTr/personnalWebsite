@@ -4,6 +4,7 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .footerLeftPanel{
@@ -20,6 +21,7 @@
     align-items: center;
     justify-content: center;
     width: 50%;
+    height: 100%;
 }
 
 .map{
@@ -52,7 +54,7 @@
     margin: 5px;
 }
 
-#mapPointer{
+#mapPointer {
     border-radius: 100px;
     z-index: 1;
 }
@@ -73,7 +75,7 @@
     transform: translateX(-50%);
 }
 
-.blueFooter{
+.blueFooter {
     background-color: #0064E1;
     height: 50px;
     display: flex;
@@ -81,7 +83,7 @@
     justify-content: center;
 }
 
-.blueFooter > p {
+.footerText {
     width : 80vw;
     color : white;
 }
@@ -116,13 +118,22 @@
     text-align: left;
     margin-left: 20px;
     margin-top: 0;
-    font-size: 4.0rem;
+    font-size: 6.5rem;
     line-height: 5.0rem;
 }
 
 @media screen and (max-width: 990px) {
 
-    .footerSection {
-        flex-direction: column;
+    .footerLeftPanel{
+        width: 100%;
+    }
+
+    .footerRightPanel{
+        width: 100%;
+    }
+
+    .footerContainer{
+        height: fit-content;
+        gap: 20px;
     }
 }

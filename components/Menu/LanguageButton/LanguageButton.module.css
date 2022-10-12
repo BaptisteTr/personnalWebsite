@@ -6,7 +6,6 @@
     color: #FFFFFF;
     font-family: 'Inter', serif;
     font-style: normal;
-    font-size: 18px;
     line-height: 24px;
     text-align: center;
     padding: 8px;
@@ -22,26 +21,10 @@
 
 @media screen and (max-width: 672px) {
 
-    .button {
-        border-width: 1px;
-        position: relative;
-        right: 0;
-        top: 5%;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 12px;
-        align-self: flex-end;
-    }
+
 }
 
 @media screen and (max-width: 990px) {
-    .button {
-        border-width: 1px;
-        margin-bottom: 10px;
-        align-self: flex-end;
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 12px;
-    }
+
 }
 
