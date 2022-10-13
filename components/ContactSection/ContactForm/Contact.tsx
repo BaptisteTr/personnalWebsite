@@ -133,7 +133,7 @@ export const Contact: FunctionComponent<ContactProps> = ({description}) => {
             <input id={style["contactNameInput"]} type="text"
                    onChange={(e)=>{setName(e.target.value)}}
                    onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
-                   onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Nom" : "Name")}
+                   onFocus={(e) => {resetInput(e,localisation.locale === locales.francais ? "Nom" : "Name"); e.target.focus({preventScroll : true})}}
                    defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
             />
             <span className={style.separator+" "+`${errorName ? style.inputError : ""}`}/>
@@ -142,7 +142,7 @@ export const Contact: FunctionComponent<ContactProps> = ({description}) => {
             <input id={style["contactEmailInput"]} type="text"
                    onChange={(e)=>{setEmail(e.target.value)}}
                    onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
-                   onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
+                   onFocus={(e) => {resetInput(e,localisation.locale === locales.francais ? "Adresse email" : "Email adress"); e.target.focus({preventScroll : true})}}
                    defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
             />
             <span className={style.separator+" "+`${errorEmail ? style.inputError : ""}`}/>
@@ -152,7 +152,7 @@ export const Contact: FunctionComponent<ContactProps> = ({description}) => {
             <textarea id={style["contactMessageInput"]}  name="message"
                       onChange={(e)=>{setMessage(e.target.value)}}
                       onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
-                      onFocus={(e) => resetInput(e,localisation.locale === locales.francais ? "Votre message" : "Your message")}
+                      onFocus={(e) => {resetInput(e,localisation.locale === locales.francais ? "Votre message" : "Your message"); e.target.focus({preventScroll : true})}}
                       defaultValue={localisation.locale === locales.francais ? "Votre message" : "Your message"}
             ></textarea>
             <span className={style.separator+" "+`${errorMessage ? style.inputError : ""}`} />

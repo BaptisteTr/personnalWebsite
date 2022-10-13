@@ -145,7 +145,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
                 <div ref={skillsRef}/>
                 <SkillsSection skills={skills} descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services") )}/>
                 <div ref={portfolioRef}/>
-                <PortfolioSection projects={projects}/>
+                <PortfolioSection projects={projects} description={descriptions.find(d => d.section_key === "projects")}/>
                 <div ref={footerRef}/>
                 <ContactSection description={descriptions.find(d => d.section_key === "contact")}/>
                 <div className={style.blueFooter}>

@@ -40,7 +40,7 @@ const SkillsSection = forwardRef<any,ContentSectionProps>((props, ref) => {
             <h1>{title}</h1>
             <div className={style.contentContainer}>
                 {props.descriptions.filter(d => d.section_key.startsWith("services")).map(d => {
-                    return <p key={d.id}>{localisation.locale === locales.francais ? d.description_fr : d.description_eng}</p>
+                    return <p key={d.id} dangerouslySetInnerHTML={{ __html: localisation.locale === locales.francais ? d.description_fr : d.description_eng}}></p>
                 })}
             </div>
             <div className={style.skillsContainer}>
