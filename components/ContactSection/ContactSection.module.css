@@ -88,6 +88,10 @@
     color : white;
 }
 
+.footerText > a {
+    color : #00BF94;
+}
+
 .bigBackgroundWord {
     color: rgba(255,255,255,0.04);
     position: absolute;

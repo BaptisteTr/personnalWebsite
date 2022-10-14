@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import '../fonts/stylesheet.css';
+import '../fonts/fonts.css';
 import {locales, LocalisationContext} from "../contexts/Locale";
 import {useState} from "react";
 

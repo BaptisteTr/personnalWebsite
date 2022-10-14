@@ -131,8 +131,14 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
         <meta name="description" content="Je propose mes services de développeur freelance"/>
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-
-          <title>Baptiste Trautmann - Développeur Freelance</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+        <link rel="manifest" href="/site.webmanifest"/>
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
+        <meta name="msapplication-TileColor" content="#da532c"/>
+        <meta name="theme-color" content="#ffffff"/>
+        <title>Baptiste Trautmann - Développeur Freelance</title>
       </Head>
         <div className="layout" >
 
@@ -149,7 +155,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
                 <div ref={footerRef}/>
                 <ContactSection description={descriptions.find(d => d.section_key === "contact")}/>
                 <div className={style.blueFooter}>
-                    <p className={style.footerText}>{localisation.locale === locales.francais ? "Développé par" : "Developed by"} Baptiste Trautmann 2022</p>
+                    <p className={style.footerText}>{localisation.locale === locales.francais ? "Développé par" : "Developed by"} Baptiste Trautmann 2022 : <a href="https://github.com/BaptisteTr/personnalWebsite">sources</a></p>
                 </div>
             </div>
         </div>
