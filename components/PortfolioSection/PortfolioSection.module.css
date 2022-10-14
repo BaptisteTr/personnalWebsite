@@ -56,9 +56,12 @@
 
 }
 
-@media screen and (min-aspect-ratio: 3/2) {
+@media screen and (max-width: 1296px) {
 
-    #portfolioSectionDiv {
-        min-height: 100vw;
+    @media screen and (min-aspect-ratio: 3/2) {
+
+        #portfolioSectionDiv {
+            min-height: 100vw;
+        }
     }
 }
