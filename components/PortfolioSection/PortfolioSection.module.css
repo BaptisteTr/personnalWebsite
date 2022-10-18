@@ -15,7 +15,7 @@
     font-size: 6.5rem;
     line-height: 5.0rem;
     margin-bottom: 5vh;
-    padding-top: 10%;
+    padding-top: 20px;
 }
 
 #portfolioSectionDiv {
@@ -46,6 +46,30 @@
     text-align: left;
     margin-left: 20px;
     max-width: 800px;
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .zoom {
+
+        animation: zoom-in 0.5s ease-in;
+        animation-fill-mode: forwards;
+    }
+
+    #portfolio {
+        opacity: 0;
+        transform: scale(1.3);
+    }
 }
 
 @media screen and (max-width: 990px) {

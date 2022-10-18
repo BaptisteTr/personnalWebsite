@@ -81,6 +81,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .footerText {
@@ -124,6 +126,7 @@
     margin-top: 0;
     font-size: 6.5rem;
     line-height: 5.0rem;
+    padding-top: 20px;
     z-index: 1;
 }
 

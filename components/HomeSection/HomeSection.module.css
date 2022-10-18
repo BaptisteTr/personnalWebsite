@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     position:relative;
     gap: 10px;
     flex-grow: 2;
@@ -39,7 +39,7 @@
     backdrop-filter: blur(2px);
 }
 
-.contactButton{
+.contactButton {
     border-style: solid;
     border-width: 2px;
     border-color: #00BF94;
@@ -49,7 +49,16 @@
     transition: all 100ms ease-in;
     backdrop-filter: blur(2px);
     pointer-events: all;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0 20px;
 }
+
+
 
 .contactButton:hover{
     background-color: #00BF94;
@@ -61,16 +70,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
     pointer-events: none;
-}
-
-.infoCardSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 50%;
 }
 
 #mapPointer{
@@ -94,7 +95,7 @@
 }
 
 .canvas{
-    position: absolute;
+    position: fixed;
     top:0;
     width:100%;
     height: 100%;
@@ -102,19 +103,43 @@
     background-color: #1D1D1D;
 }
 
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .homeSection {
+        animation: zoom-in 1s ease-out;
+        animation-fill-mode: forwards;
+        animation-delay: 500ms;
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+}
+
 @media screen and (max-width: 990px) {
 
-    .homeContainer{
-        padding-top: 15%;
+    .homeSection{
         flex-wrap: wrap;
+        text-align: center;
     }
 
-    .infoSection {
-        width: 100%;
-    }
-
-    .infoCardSection {
-        width: 100%;
+    .buttons {
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
     }
 }

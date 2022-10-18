@@ -5,6 +5,7 @@ import Image from "next/image";
 import {DownloadCVButton} from "../globalComponents/DownloadCVButton/DownloadCVButton";
 import {locales, LocalisationContext} from "../../contexts/Locale";
 import {Description} from "../../pages";
+import styles from "../HomeSection/InfoCard/InfoCard.module.css";
 
 type FooterSectionProps = {
     description : Description | undefined;

@@ -9,7 +9,6 @@
     overflow: hidden;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: #00b3ff;
 }
 
 .portfolioCard:hover > .cardContent{

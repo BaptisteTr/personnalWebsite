@@ -3,8 +3,8 @@ import React from "react";
 import style from './HomeSection.module.css';
 import {Description} from "../../pages";
 import {locales, LocalisationContext} from "../../contexts/Locale";
-import InfoCard from "./InfoCard/InfoCard";
 import {CanvasSpace, Create, Line, Pt} from "pts";
+import {DownloadCVButton} from "../globalComponents/DownloadCVButton/DownloadCVButton";
 
 interface IProps {
     descriptions:Description[]
@@ -93,7 +93,10 @@ class HomeSection extends React.Component<IProps, IState> {
     };
     constructor(props: IProps) {
         super(props);
+
     }
+
+
 
     static contextType = LocalisationContext;
     context!: React.ContextType<typeof LocalisationContext>
@@ -130,15 +133,14 @@ class HomeSection extends React.Component<IProps, IState> {
                     <h1 className={style.homeName}>Baptiste TRAUTMANN</h1>
                     <h2 className={style.homeTitle}>{title}</h2>
                     <p className={style.homeDescription}>{description}</p>
-                    <a href="" onClick={e => {e.preventDefault(); this.props.scrollToContact()}} className={style.contactButton}>{buttonText}</a>
+                    <div className={style.buttons} >
+                        <a href="" onClick={e => {e.preventDefault(); this.props.scrollToContact()}} className={style.contactButton}>{buttonText}</a>
+                        <DownloadCVButton  color={"green"}/>
+                    </div>
 
                 </div>
             </div>
 
-
-            <div className={style.infoCardSection}>
-                <InfoCard />
-            </div>
         </div>
         ;
     }
