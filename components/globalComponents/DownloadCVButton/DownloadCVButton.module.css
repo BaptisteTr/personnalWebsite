@@ -9,6 +9,7 @@
     text-decoration: none;
     transition: all 100ms ease-in;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     pointer-events: all;
 }
 

@@ -1,5 +1,4 @@
 .homeContainer{
-    position: relative;
     display: flex;
     background-color: #1D1D1D;
     height: 100vh;
@@ -22,6 +21,7 @@
     margin: 0;
     pointer-events: all;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .homeTitle {
@@ -30,6 +30,7 @@
     margin: 0;
     pointer-events: all;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .homeDescription {
@@ -37,6 +38,7 @@
     pointer-events: all;
     font-size: 1.8rem;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .contactButton {
@@ -48,6 +50,7 @@
     text-decoration: none;
     transition: all 100ms ease-in;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     pointer-events: all;
     font-family: 'Inter', serif;
     font-style: normal;
@@ -57,8 +60,6 @@
     text-align: center;
     margin: 0 20px;
 }
-
-
 
 .contactButton:hover{
     background-color: #00BF94;
@@ -77,21 +78,6 @@
 #mapPointer{
     border-radius: 100px;
     z-index: 1;
-}
-
-#mapPointerCircle {
-    position:absolute;
-    right: 85px;
-    top: 275px;
-}
-#mapPointerAngle {
-    content: "";
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    border: 34px solid transparent;
-    border-top: 65px solid #2E3BC0;
-    transform: translateX(-50%);
 }
 
 .canvas{

@@ -35,6 +35,7 @@
 .contactInfos {
     background-color: rgba(46,59,192,75%);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     flex-direction: column;
     width: fit-content;
