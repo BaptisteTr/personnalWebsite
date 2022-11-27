@@ -20,7 +20,7 @@
     font-size: 5rem;
     margin: 0;
     pointer-events: all;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(2px);
 }
 
@@ -127,5 +127,10 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+    }
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .homeName {
     }
 }
