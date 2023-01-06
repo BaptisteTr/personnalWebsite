@@ -5,7 +5,6 @@ import Image from "next/image";
 import {DownloadCVButton} from "../globalComponents/DownloadCVButton/DownloadCVButton";
 import {locales, LocalisationContext} from "../../contexts/Locale";
 import {Description} from "../../pages";
-import styles from "../HomeSection/InfoCard/InfoCard.module.css";
 
 type FooterSectionProps = {
     description : Description | undefined;
@@ -15,7 +14,7 @@ export const ContactSection: FunctionComponent<FooterSectionProps> = ({descripti
 
 
     const localisation = useContext(LocalisationContext);
-    let title: string = localisation.locale === locales.francais ? "Contactez moi!" : "Contact me!";
+    let title: string = localisation.locale === locales.francais ? "Contactez-moi !" : "Contact-me !";
 
 return <React.Fragment>
         <div className={style.footerContainer}>

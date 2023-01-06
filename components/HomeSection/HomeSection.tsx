@@ -119,11 +119,11 @@ class HomeSection extends React.Component<IProps, IState> {
         if(locale === locales.francais) {
             description = "Ingénieur logiciel en développement front et fullstack"
             title = "Développeur web Freelance"
-            buttonText = "Contactez-moi!"
+            buttonText = "Contactez-moi !"
         } else {
             description = "Software engineer in front and fullstack development"
             title = "Freelance web Developer"
-            buttonText = "Contact-me!"
+            buttonText = "Contact-me !"
         }
 
         return <div className={style.homeContainer}>
