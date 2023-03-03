@@ -3,6 +3,7 @@
     background-color: #1D1D1D;
     height: 100vh;
     width: 100%;
+    align-items: center;
 }
 
 .homeSection {
@@ -13,6 +14,11 @@
     position:relative;
     gap: 10px;
     flex-grow: 2;
+    border-radius: 100%;
+    padding: 40px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background: rgba(46,59,192,0.2);
 }
 
 .homeName {
@@ -20,8 +26,6 @@
     font-size: 5rem;
     margin: 0;
     pointer-events: all;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(2px);
 }
 
 .homeTitle {
@@ -29,16 +33,12 @@
     font-size: 3rem;
     margin: 0;
     pointer-events: all;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
 }
 
 .homeDescription {
     color: #0099D7;
     pointer-events: all;
     font-size: 1.8rem;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
 }
 
 .contactButton {
@@ -46,11 +46,9 @@
     border-width: 2px;
     border-color: #00BF94;
     color: #00BF94;
-    padding: 20px 40px;
+    padding: 20px 20px;
     text-decoration: none;
     transition: all 100ms ease-in;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
     pointer-events: all;
     font-family: 'Inter', serif;
     font-style: normal;
@@ -58,7 +56,6 @@
     font-size: 18px;
     line-height: 24px;
     text-align: center;
-    margin: 0 20px;
 }
 
 .contactButton:hover{
@@ -92,6 +89,7 @@
 .buttons {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
 
 @keyframes zoom-in {

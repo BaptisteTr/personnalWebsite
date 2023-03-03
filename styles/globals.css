@@ -32,11 +32,30 @@ a {
   grid-template-rows: 1fr;
   min-height: 100vh;
   position:relative;
+  background-color: #1d1d1d;
 }
 
 
 .menu {
   grid-area: 1 / 1;
+  animation-delay: 500ms;
+  animation: enter-left-slide 1s ease-out;
+  animation-fill-mode: forwards;
+
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+@keyframes enter-left-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .content {

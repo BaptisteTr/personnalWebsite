@@ -5,7 +5,7 @@ import {PortfolioSection} from "../components/PortfolioSection/PortfolioSection"
 import SkillsSection from "../components/SkillsSection/SkillsSection";
 import {ContactSection} from "../components/ContactSection/ContactSection";
 import {InferGetStaticPropsType} from "next";
-import React, {useCallback, useContext, useRef, useState} from "react";
+import React, {useCallback, useContext, useEffect, useRef, useState} from "react";
 import style from "../components/ContactSection/ContactSection.module.css";
 import {locales, LocalisationContext} from "../contexts/Locale";
 
@@ -122,7 +122,19 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
     const portfolioRef = useRef(null);
     const skillsRef = useRef(null);
     const footerRef = useRef(null);
+    const menuRef = useRef(null);
     const localisation = useContext(LocalisationContext);
+
+    useEffect(() => {
+        setTimeout(() => {
+            const menu = menuRef.current;
+            if(menu != null) {
+                // @ts-ignore
+                menu.className = "fixed menu";
+            }
+        }, 1500)
+    })
+
 
     // @ts-ignore
     return (
@@ -142,7 +154,7 @@ const Home = ({projects, skills, descriptions} : InferGetStaticPropsType<typeof 
       </Head>
         <div className="layout" >
 
-            <div className="menu">
+            <div ref={menuRef} className="menu">
                 <Menu setMenuVisible={setMenuVisible} isMenuVisible={isMenuVisible} scrollToSkills={scrollToSkills} scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
             </div>
             <div className="content" >

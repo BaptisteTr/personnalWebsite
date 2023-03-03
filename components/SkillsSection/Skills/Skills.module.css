@@ -5,6 +5,7 @@
     width: 80%;
     box-shadow: 3px 3px 5px rgba(0,0,0,50%);
     border-top: solid 3px;
+    border-left: #151515 solid 3px;
 }
 
 .skillLeftPanel {
@@ -52,7 +53,7 @@
 }
 
 .blue_border {
-    border-color: #0099D7;
+    border-top-color: #0099D7;
 }
 
 .lightBlue {
@@ -64,7 +65,7 @@
 }
 
 .lightBlue_border {
-    border-color: #00ADB8;
+    border-top-color: #00ADB8;
 }
 
 .green {
@@ -76,7 +77,7 @@
 }
 
 .green_border {
-    border-color: #00BF94;
+    border-top-color: #00BF94;
 }
 
 .skillItem {

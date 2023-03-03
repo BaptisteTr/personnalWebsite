@@ -30,6 +30,8 @@
     background: right no-repeat url("../../public/map.png");
     z-index: 1;
     position: relative;
+
+    border: #151515 solid 3px;
 }
 
 .contactInfos {
