@@ -8,9 +8,12 @@ import {Description} from "../../pages";
 
 type FooterSectionProps = {
     description : Description | undefined;
+    email_template_id : string | undefined;
+    email_key : string | undefined;
+    email_service : string | undefined;
 }
 
-export const ContactSection: FunctionComponent<FooterSectionProps> = ({description}) => {
+export const ContactSection: FunctionComponent<FooterSectionProps> = ({description, email_service, email_key, email_template_id}) => {
 
 
     const localisation = useContext(LocalisationContext);
@@ -23,7 +26,7 @@ return <React.Fragment>
 
             <h1>{title}</h1>
             <div className={style.footerLeftPanel}>
-                <Contact description={description}/>
+                <Contact email_service={email_service} email_key={email_key} email_template_id={email_template_id}  description={description}/>
             </div>
 
             <div className={style.footerRightPanel}>

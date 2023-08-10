@@ -2,13 +2,15 @@ import React, {FunctionComponent, useContext, useEffect, useState} from 'react';
 import style from './Contact.module.css';
 import {locales, LocalisationContext} from "../../../contexts/Locale";
 import {Description} from "../../../pages";
+import emailJs from '@emailjs/browser';
 
 type ModalProps = {
-    modal:string,
-    unSetModal:() => void
+    modal: string,
+    unSetModal: () => void
 }
 
-const Modal : FunctionComponent<ModalProps> = ({ modal, unSetModal }) => {
+
+const Modal: FunctionComponent<ModalProps> = ({modal, unSetModal}) => {
     useEffect(() => {
         const bind = (e: { keyCode: number; }) => {
             if (e.keyCode !== 27) {
@@ -47,22 +49,25 @@ const Modal : FunctionComponent<ModalProps> = ({ modal, unSetModal }) => {
 }
 
 type ContactProps = {
-    description:Description | undefined
+    description: Description | undefined;
+    email_template_id : string | undefined;
+    email_key : string | undefined;
+    email_service : string | undefined;
 }
 
-export const Contact: FunctionComponent<ContactProps> = ({description}) => {
+export const Contact: FunctionComponent<ContactProps> = ({description, email_service, email_key, email_template_id}) => {
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+    const localisation = useContext(LocalisationContext);
+    const [name, setName] = useState(localisation.locale === locales.francais ? "Nom" : "Name");
+    const [email, setEmail] = useState(localisation.locale === locales.francais ? "Adresse email" : "Email adress");
+    const [message, setMessage] = useState(localisation.locale === locales.francais ? "Votre message" : "Your message");
     const [errorName, setErrorName] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const [modal, setModal] = useState('');
-    const localisation = useContext(LocalisationContext);
 
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         let data = {
@@ -71,47 +76,48 @@ export const Contact: FunctionComponent<ContactProps> = ({description}) => {
             message
         }
 
-        if(data.name === "" ) {
+        if (data.name === "") {
             setErrorName(true);
-        } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
+        } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email)) {
             setErrorEmail(true);
-        } else if(data.message === "" ) {
+        } else if (data.message === "") {
             setErrorMessage(true);
         } else {
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }).then((res) => {
-                if (res.status === 200) {
-                    setName('')
-                    setEmail('')
-                    setMessage('')
-                    setErrorName(false)
-                    setErrorEmail(false)
-                    setErrorMessage(false)
-                    if(localisation.locale == locales.francais) {
-                        setModal("Message envoyé! Je vous recontacte dans les plus brefs délais.")
-                    } else {
-                        setModal("Message sent! I will contact you back as soon as possible.")
-                    }
+            if(email_service !== undefined && email_template_id !== undefined && email_key != undefined) {
+                emailJs.send(email_service, email_template_id, data, email_key)
+                    .then(() => {
+                        setName(localisation.locale === locales.francais ? "Nom" : "Name")
+                        setEmail(localisation.locale === locales.francais ? "Adresse email" : "Email adress")
+                        setMessage(localisation.locale === locales.francais ? "Votre message" : "Your message")
+                        setErrorName(false)
+                        setErrorEmail(false)
+                        setErrorMessage(false)
+                        if (localisation.locale == locales.francais) {
+                            setModal("Message envoyé! Je vous recontacte dans les plus brefs délais.")
+                        } else {
+                            setModal("Message sent! I will contact you back as soon as possible.")
+                        }
+                    }, (error) => {
+                        console.log(error);
+                        if (localisation.locale == locales.francais) {
+                            setModal("Erreur lors de l'envoi de mail.")
+                        } else {
+                            setModal("There was an error during the mail")
+                        }
+                    });
+            } else {
+                if (localisation.locale == locales.francais) {
+                    setModal("Erreur lors de l'envoi de mail.")
                 } else {
-
-                    if(localisation.locale == locales.francais) {
-                        setModal("Erreur lors de l'envoi de mail.")
-                    } else {
-                        setModal("There was an error during the mail")
-                    }
+                    setModal("There was an error during the mail")
                 }
-            })
+            }
+
         }
     }
 
     const resetInput = (e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>, defaultValue: string) => {
-        if(e && e.target.value === defaultValue) {
+        if (e && e.target.value === defaultValue) {
             e.target.value = "";
             setErrorName(false);
             setErrorEmail(false);
@@ -120,50 +126,73 @@ export const Contact: FunctionComponent<ContactProps> = ({description}) => {
     }
 
     const resetLabels = (e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>, defaultValue: string) => {
-        if(e && e.target.value.trim() === "") {
+        if (e && e.target.value.trim() === "") {
             e.target.value = defaultValue;
         }
     }
 
 
     return <>
-    <form id={style["contactForm"]} onSubmit={(e) => {handleSubmit(e)}} >
-        <p>{localisation.locale === locales.francais ? description?.description_fr : description?.description_eng}</p>
-        <div className={style.inputContainer}>
-            <input id={style["contactNameInput"]} type="text"
-                   onChange={(e)=>{setName(e.target.value)}}
-                   onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
-                   onFocus={(e) => {resetInput(e,localisation.locale === locales.francais ? "Nom" : "Name"); e.target.focus({preventScroll : true})}}
-                   defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
-            />
-            <span className={style.separator+" "+`${errorName ? style.inputError : ""}`}/>
-        </div>
-        <div className={style.inputContainer}>
-            <input id={style["contactEmailInput"]} type="text"
-                   onChange={(e)=>{setEmail(e.target.value)}}
-                   onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
-                   onFocus={(e) => {resetInput(e,localisation.locale === locales.francais ? "Adresse email" : "Email adress"); e.target.focus({preventScroll : true})}}
-                   defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
-            />
-            <span className={style.separator+" "+`${errorEmail ? style.inputError : ""}`}/>
-        </div>
+        <form id={style["contactForm"]} onSubmit={(e) => {
+            sendEmail(e)
+        }}>
+            <p>{localisation.locale === locales.francais ? description?.description_fr : description?.description_eng}</p>
+            <div className={style.inputContainer}>
+                <input id={style["contactNameInput"]} type="text"
+                       onChange={(e) => {
+                           setName(e.target.value)
+                       }}
+                       value={name}
+                       onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
+                       onFocus={(e) => {
+                           resetInput(e, localisation.locale === locales.francais ? "Nom" : "Name");
+                           e.target.focus({preventScroll: true})
+                       }}
+                       defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
+                />
+                <span className={style.separator + " " + `${errorName ? style.inputError : ""}`}/>
+            </div>
+            <div className={style.inputContainer}>
+                <input id={style["contactEmailInput"]} type="text"
+                       onChange={(e) => {
+                           setEmail(e.target.value)
+                       }}
+                       value={email}
+                       onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
+                       onFocus={(e) => {
+                           resetInput(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress");
+                           e.target.focus({preventScroll: true})
+                       }}
+                       defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
+                />
+                <span className={style.separator + " " + `${errorEmail ? style.inputError : ""}`}/>
+            </div>
 
-        <div className={style.inputContainer}>
-            <textarea id={style["contactMessageInput"]}  name="message"
-                      onChange={(e)=>{setMessage(e.target.value)}}
-                      onBlur={(e)=>resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
-                      onFocus={(e) => {resetInput(e,localisation.locale === locales.francais ? "Votre message" : "Your message"); e.target.focus({preventScroll : true})}}
+            <div className={style.inputContainer}>
+            <textarea id={style["contactMessageInput"]} name="message"
+                      onChange={(e) => {
+                          setMessage(e.target.value)
+                      }}
+                      value={message}
+                      onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
+                      onFocus={(e) => {
+                          resetInput(e, localisation.locale === locales.francais ? "Votre message" : "Your message");
+                          e.target.focus({preventScroll: true})
+                      }}
                       defaultValue={localisation.locale === locales.francais ? "Votre message" : "Your message"}
             ></textarea>
-            <span className={style.separator+" "+`${errorMessage ? style.inputError : ""}`} />
+                <span className={style.separator + " " + `${errorMessage ? style.inputError : ""}`}/>
 
-        </div>
+            </div>
 
-        <span className={style.separator}> </span>
-        <div id={style["modal_and_submitDiv"]}>
-            <Modal modal={modal} unSetModal={() => {setModal('')}}></Modal>
-            <input id={style["contactSubmit"]} type="submit" value={localisation.locale === locales.francais ? "Envoyer" : "Send"}/>
-        </div>
-    </form>
-</>;
+            <span className={style.separator}> </span>
+            <div id={style["modal_and_submitDiv"]}>
+                <Modal modal={modal} unSetModal={() => {
+                    setModal('')
+                }}></Modal>
+                <input id={style["contactSubmit"]} type="submit"
+                       value={localisation.locale === locales.francais ? "Envoyer" : "Send"}/>
+            </div>
+        </form>
+    </>;
 }
