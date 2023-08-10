@@ -28,8 +28,9 @@ return <div className={style.portfolioCard} style={{backgroundImage: `url(${proj
         <h1 className={style.portfolioTitle}>{title}</h1>
         <p className={style.portfolioDescription}>{description}</p>
         <div className={style.portfolioTechs}>
-            {project.technologies.map( (tech) => {
-                return <p className={style.portfolioTech} key={tech.Technologies_id.label} >{tech.Technologies_id.label}</p>
+            {
+                project.technologies.map( (tech : String) => {
+                return <p className={style.portfolioTech} key={project.id+"_"+tech}>{tech}</p>
                 })
             }
         </div>

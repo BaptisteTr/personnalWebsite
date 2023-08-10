@@ -21,11 +21,7 @@ export type Project = {
   sources_link: string
   illustration:string
   picture: any
-  technologies: Array<{
-    Technologies_id : {
-      label:string
-    }
-  }>
+  technologies: Array<String>
 }
 
 export type Skill = {
@@ -45,7 +41,7 @@ export type Description = {
 export const getStaticProps = async() => {
   const DIRECTUS_URL = process.env.directus_url
   const DIRECTUS_TOKEN = process.env.directus_token
-  const res = await fetch(`${DIRECTUS_URL}/items/Projects?fields=*,technologies.Technologies_id.label`,
+  const res = await fetch(`${DIRECTUS_URL}/items/Projects`,
   {
         method: 'get',
         headers: new Headers({
@@ -56,7 +52,7 @@ export const getStaticProps = async() => {
       });
   const result: {data : Project[]} = await res.json()
   const projects : Project[] = result.data;
-  result.data.forEach(p => p.illustration = `${DIRECTUS_URL}/assets/${p.illustration}`)
+  result.data.forEach(p => p.illustration = `/${p.illustration}`)
 
   const resSkills = await fetch(`${DIRECTUS_URL}/items/Skills`,
       {
