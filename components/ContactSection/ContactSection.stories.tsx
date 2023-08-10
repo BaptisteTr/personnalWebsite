@@ -16,4 +16,6 @@ let description : Description = {
     section_key: "contact"
 }
 
-export const Primary: ComponentStory<typeof ContactSection> = () => <ContactSection description={description}/>
+let email_service = "", email_key = "", email_template_id = "";
+
+export const Primary: ComponentStory<typeof ContactSection> = () => <ContactSection description={description} email_key={email_key} email_service={email_service} email_template_id={email_template_id}/>
