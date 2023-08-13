@@ -38,6 +38,21 @@
     color:#414141;
 }
 
+.greenCVButtonBordered {
+    background: transparent;
+    border-color: #00BF94;
+    color:#00BF94;
+    text-shadow: 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000,
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+.greenCVButtonBordered:hover {
+    background-color:#00BF94;
+    border-color: #00BF94;
+    color: #000000;
+    text-shadow: none;
+}
+
 .blueCVButton {
     background: transparent;
     border-color:#32699F;
@@ -48,4 +63,16 @@
     background-color: #32699F;
     border-color:#32699F;
     color:#FFFFFF;
+}
+
+.whiteCVButton {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.whiteCVButton:hover {
+    background-color: #00BF94;
+    border-color: transparent;
+    color: #000000;
 }

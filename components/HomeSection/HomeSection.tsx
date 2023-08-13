@@ -3,8 +3,9 @@ import React from "react";
 import style from './HomeSection.module.css';
 import {Description} from "../../pages";
 import {locales, LocalisationContext} from "../../contexts/Locale";
-import {CanvasSpace, Create, Line, Pt} from "pts";
+import {CanvasSpace, Create, Pt} from "pts";
 import {DownloadCVButton} from "../globalComponents/DownloadCVButton/DownloadCVButton";
+import Image from "next/image";
 
 interface IProps {
     descriptions:Description[]
@@ -12,6 +13,9 @@ interface IProps {
 }
 
 interface IState {
+    width: number,
+    height: number,
+    sliding : Boolean
 }
 
 
@@ -24,50 +28,58 @@ export function floatySpace(space: CanvasSpace) {
     const form = space.getForm();
     let landmarks: any;
     let mouse: any;
-    let brightness: (number)[] = [];
+    let origin : any = [];
 
     space.add({
 
         start: () => {
 
             // Elements
-            let count = window.innerWidth * 0.16;
-            if (count > 150) count = 150;
+            let count = window.innerWidth * 0.06;
+            if (count > 20) count = 20;
             let r = Math.min(space.size.x, space.size.y);
             mouse = space.center;
 
-
             // Make a face with 30 radial points with slight randomness
-            landmarks = Create.radialPts( space.center, r, count);
-            landmarks.map( (p: { to: (arg0: Pt) => void; add: (arg0: number, arg1: number) => void; rotate2D: (arg0: number, arg1: Pt) => void; }) => {
-                p.to(space.center);
-                p.add(Math.random()*r-Math.random()*r, Math.random()*r-Math.random()*r );
-                p.rotate2D( count*Math.PI/count, space.center);
-                brightness.push(0.1);
+            landmarks = Create.radialPts( space.center, r/3, count);
+            landmarks.map( (p: { to: (arg0: Pt) => void; add: (arg0: number, arg1: number) => void; rotate2D: (arg0: number, arg1: Pt) => void; x : number; y: number  }) => {
+                p.add((Math.random()-0.5)*space.size.x, (Math.random()-0.5)*space.size.y );
+                p.rotate2D( count*Math.PI/10, space.center);
+
             });
+
+            for (let i=0; i<landmarks.length; i++) {
+                origin.push(new Pt(landmarks[i].x, landmarks[i].y))
+            }
+
         },
 
         animate: () => {
 
-            let angle = new Pt(space.width/4,-space.height).angle();
-
             for (let i=0; i<landmarks.length; i++) {
                 const pt = landmarks[i];
+                const originPt = origin[i];
 
-                pt.rotate2D( 1 / 2000, space.center);
-                form.fillOnly(colors[i%3]).point( landmarks[i], 1.5, "circle" );
+                form.fillOnly(colors[i%3]).point( landmarks[i], 150, "circle" );
 
-                let ln = Line.fromAngle(landmarks[i], angle, window.innerHeight);
+                const mouseXDistance = mouse.x - pt.x;
+                const mouseYDistance = mouse.y - pt.y;
+                const distFromMouse = Math.sqrt(Math.pow(mouseYDistance,2)+Math.pow(mouseXDistance,2));
 
-                const distFromMouse = Math.abs(Line.distanceFromPt(ln, mouse));
+                const distanceFromOriginX = originPt.x - pt.x;
+                const distanceFromOriginY = originPt.y - pt.y;
 
-                if (distFromMouse < 50) {
-                    if (brightness[i] < 0.4) brightness[i] += 0.015;
+                if (distFromMouse < 300) {
+                    pt.add(-mouseXDistance/distFromMouse*5,-mouseYDistance/distFromMouse*5);
+                } else if( distFromMouse > 400){
+                    pt.add(distanceFromOriginX/40,distanceFromOriginY/40);
                 } else {
-                    if (brightness[i] > 0.1) brightness[i]-= 0.01;
+
+                    originPt.to(space.center);
+                    originPt.add((Math.random()-0.5)*space.size.x, (Math.random()-0.5)*space.size.y );
                 }
 
-                form.strokeOnly("#FFFFFF", brightness[i]).line(ln);
+                //originPt.add((Math.random()-0.5)*20,(Math.random()-0.5)*20);
 
             }
         },
@@ -84,19 +96,21 @@ export function floatySpace(space: CanvasSpace) {
 
 
 
+
 class HomeSection extends React.Component<IProps, IState> {
-    state = { width: 0, height: 0 };
+    state = { width: 0, height: 0, sliding : true };
+
     updateDimensions = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-        let space = new CanvasSpace("#pts").setup({bgcolor: "#1D1D1D", retina: true, resize: true});
+
+        let space = new CanvasSpace("#pts").setup({bgcolor: "#000000", retina: true, resize: true});
         floatySpace(space);
     };
+    private interval: NodeJS.Timer | undefined;
+
     constructor(props: IProps) {
         super(props);
-
     }
-
-
 
     static contextType = LocalisationContext;
     context!: React.ContextType<typeof LocalisationContext>
@@ -104,38 +118,63 @@ class HomeSection extends React.Component<IProps, IState> {
     componentDidMount() {
 
         if(window.innerWidth > 672) {
-            let space = new CanvasSpace("#pts").setup({bgcolor: "#1D1D1D", retina: true, resize: true});
+            let space = new CanvasSpace("#pts").setup({bgcolor: "#000000", retina: true, resize: true});
             floatySpace(space);
 
             window.addEventListener('resize', this.updateDimensions);
         }
+
+
+        const swapState = () => {
+            this.setState( {sliding : !this.state.sliding});
+        }
+        this.interval = setInterval(function() {
+            swapState();
+        },3000);
+
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {
 
 
         let { locale } = this.context;
-        let title,description,buttonText: string|undefined;
+        let title,description1,description2,buttonText: string|undefined;
         if(locale === locales.francais) {
-            description = "Ingénieur logiciel en développement front et fullstack"
-            title = "Développeur web Freelance"
+            description1 = "Ingénieur logiciel"
+            description2 = "Développement front et fullstack"
+            title = "Développeur web"
             buttonText = "Contactez-moi !"
         } else {
-            description = "Software engineer in front and fullstack development"
-            title = "Freelance web Developer"
+            description1 = "Software engineer"
+            description2 = "Front and fullstack development"
+            title = "web Developer"
             buttonText = "Contact-me !"
         }
+
+
 
         return <div className={style.homeContainer}>
             <canvas id="pts" className={style.canvas}/>
             <div className={style.infoSection}>
                 <div className={style.homeSection}>
-                    <h1 className={style.homeName}>Baptiste TRAUTMANN</h1>
-                    <h2 className={style.homeTitle}>{title}</h2>
-                    <p className={style.homeDescription}>{description}</p>
-                    <div className={style.buttons} >
-                        <a href="" onClick={e => {e.preventDefault(); this.props.scrollToContact()}} className={style.contactButton}>{buttonText}</a>
-                        <DownloadCVButton  color={"green"}/>
+                    <div className={style.textPart}>
+                        <div className={style.sliderTitle}>
+                            <h1 className={this.state.sliding ? style.active : style.inactive}>Baptiste TRAUTMANN</h1>
+                            <h1 className={this.state.sliding ? style.inactive : style.active}>Freelance</h1>
+                        </div>
+                        <h2 className={style.homeTitle}>{title}</h2>
+                        <p className={style.homeDescription}>{description1} <br></br> {description2} </p>
+                        <div className={style.buttons} >
+                            <a href="" onClick={e => {e.preventDefault(); this.props.scrollToContact()}} className={style.contactButton}>{buttonText}</a>
+                            <DownloadCVButton  color={"greenBordered"}/>
+                        </div>
+                    </div>
+                    <div className={style.portraitPart}>
+                        <Image id={style["portrait"]} src={"/portrait.jpeg"} alt="portrait" width={"300px"} height={"300px"} />
                     </div>
 
                 </div>

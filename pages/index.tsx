@@ -157,15 +157,16 @@ const Home = ({projects, skills, descriptions,EMAIL_SERVICE,EMAIL_KEY,EMAIL_TEMP
             </Head>
             <div className="layout">
 
-                <div ref={menuRef} className="menu">
-                    <Menu setMenuVisible={setMenuVisible} isMenuVisible={isMenuVisible} scrollToSkills={scrollToSkills}
-                          scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
-                </div>
+
                 <div className="content">
                     <div ref={homeRef}/>
                     <HomeSection descriptions={descriptions.filter(d => d.section_key.startsWith("presentation"))}
                                  scrollToContact={scrollToContact}/>
                     <div ref={skillsRef}/>
+                    <div ref={menuRef} className="menu">
+                        <Menu setMenuVisible={setMenuVisible} isMenuVisible={isMenuVisible} scrollToSkills={scrollToSkills}
+                              scrollToProjects={scrollToProjects} scrollToContact={scrollToContact}/>
+                    </div>
                     <SkillsSection skills={skills}
                                    descriptions={descriptions.filter(d => d.section_key.startsWith("skills") || d.section_key.startsWith("services"))}/>
                     <div ref={portfolioRef}/>
