@@ -18,12 +18,12 @@
 }
 
 .cvButton > span {
-    font-family: 'Inter', serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 2rem;
     line-height: 24px;
     text-align: center;
+    font-family: "LeagueSpartan-Bold", sans-serif;
 }
 
 .greenCVButton {
@@ -42,6 +42,7 @@
     background: transparent;
     border-color: #00BF94;
     color:#00BF94;
+
     text-shadow: 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
@@ -75,4 +76,13 @@
     background-color: #00BF94;
     border-color: transparent;
     color: #000000;
+}
+
+@media screen and (max-width: 990px) {
+
+    .greenCVButtonBordered {
+        padding: 10px;
+    }
+
+
 }

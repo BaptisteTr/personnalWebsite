@@ -22,7 +22,7 @@
 }
 
 .textPart {
-    width: 35vw;
+    width: 40vw;
 }
 
 
@@ -33,12 +33,17 @@
     pointer-events: all;
     text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+
 }
 
 .homeDescription {
-    color: #00e5b2;
+    color: #0099D7;
     pointer-events: all;
     font-size: 4rem;
+
+    font-family: "LeagueSpartan-Bold", sans-serif;
+    font-style: normal;
+    font-weight: 500;
     text-shadow: 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
 }
@@ -52,10 +57,11 @@
     text-decoration: none;
     transition: all 100ms ease-in;
     pointer-events: all;
-    font-family: 'Inter', serif;
+
+    font-family: "LeagueSpartan-Bold", sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 2rem;
     line-height: 24px;
     text-align: center;
     text-shadow: 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000,
@@ -100,16 +106,21 @@
 
 #portrait {
     border-radius: 100%;
+    width: 40vw;
 }
 
 .sliderTitle  {
     position:relative;
     height: 10rem;
+    white-space: nowrap;
+    z-index: 1;
 }
 
 .sliderTitle > h1 {
     color: white;
     font-size: 7rem;
+    font-family: "LeagueSpartan-Bold", sans-serif;
+    font-weight: normal;
     margin: 0 0 10px;
     pointer-events: all;
     text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
@@ -119,13 +130,13 @@
 .active {
     opacity: 1;
     position: absolute;
-    animation: slide-effect-in 0.6s linear;
+    animation: slide-effect-in 0.4s linear;
 }
 
 .inactive {
     opacity: 0;
     position: absolute;
-    animation: slide-effect-out 0.6s linear;
+    animation: slide-effect-out 0.4s linear;
 }
 
 
@@ -145,7 +156,9 @@
         opacity: 1;
         transform: translateX(0%);
     }
-
+    40% {
+        opacity: 0;
+    }
     60% {
         opacity: 0;
         transform: translateX(100%);
@@ -187,14 +200,49 @@
 
     .homeSection{
         flex-wrap: wrap;
-        text-align: center;
+        height : fit-content;
+        min-height: 100vh;
+    }
+
+    .homeContainer {
+        height: fit-content;
     }
 
     .buttons {
+        flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        gap: 2vw;
     }
+    .buttons > * {
+        padding: 10px;
+    }
+
+    .textPart {
+        width: 100%;
+    }
+
+    .homeDescription {
+        font-size : 2rem;
+    }
+
+    .homeTitle {
+        font-size : 4rem;
+    }
+
+    #portrait {
+        width: 10vw;
+    }
+
+    .sliderTitle {
+        height : 7rem;
+    }
+
+    .sliderTitle > h1 {
+        font-size : 5rem;
+    }
+
 }
 
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {

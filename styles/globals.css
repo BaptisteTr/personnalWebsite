@@ -46,6 +46,12 @@ a {
   position: fixed;
 }
 
+@font-face {
+  font-family: "LeagueSpartan-Bold";
+  src: url("/LeagueSpartan-Bold.otf");
+}
+
+
 @keyframes enter-left-slide {
   0% {
     transform: translateX(-100%);

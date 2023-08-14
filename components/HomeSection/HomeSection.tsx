@@ -37,8 +37,8 @@ export function floatySpace(space: CanvasSpace) {
             // Elements
             let count = window.innerWidth * 0.06;
             if (count > 20) count = 20;
-            let r = Math.min(space.size.x, space.size.y);
             mouse = space.center;
+            let r = Math.min(space.size.x, space.size.y);
 
             // Make a face with 30 radial points with slight randomness
             landmarks = Create.radialPts( space.center, r/3, count);
@@ -56,11 +56,13 @@ export function floatySpace(space: CanvasSpace) {
 
         animate: () => {
 
+            let r = Math.min(space.size.x, space.size.y);
+
             for (let i=0; i<landmarks.length; i++) {
                 const pt = landmarks[i];
                 const originPt = origin[i];
 
-                form.fillOnly(colors[i%3]).point( landmarks[i], 150, "circle" );
+                form.fillOnly(colors[i%3]).point( landmarks[i], r/6, "circle" );
 
                 const mouseXDistance = mouse.x - pt.x;
                 const mouseYDistance = mouse.y - pt.y;
@@ -163,7 +165,7 @@ class HomeSection extends React.Component<IProps, IState> {
                 <div className={style.homeSection}>
                     <div className={style.textPart}>
                         <div className={style.sliderTitle}>
-                            <h1 className={this.state.sliding ? style.active : style.inactive}>Baptiste TRAUTMANN</h1>
+                            <h1 className={this.state.sliding ? style.active : style.inactive}>Baptiste Trautmann</h1>
                             <h1 className={this.state.sliding ? style.inactive : style.active}>Freelance</h1>
                         </div>
                         <h2 className={style.homeTitle}>{title}</h2>
