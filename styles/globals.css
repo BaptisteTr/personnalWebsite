@@ -35,22 +35,20 @@ a {
 
 .menu {
   grid-area: 1 / 1;
-  animation-delay: 500ms;
-  animation: enter-left-slide 1s ease-out;
-  animation-fill-mode: forwards;
 
-  position: relative;
+  display:block;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+}
+
+.content {
+  grid-area: 2 / 1 ;
 }
 
 .fixed {
   position: fixed;
 }
-
-@font-face {
-  font-family: "LeagueSpartan-Bold";
-  src: url("/LeagueSpartan-Bold.otf");
-}
-
 
 @keyframes enter-left-slide {
   0% {
@@ -59,10 +57,6 @@ a {
   100% {
     transform: translateX(0%);
   }
-}
-
-.content {
-  grid-area: 1 / 2 ;
 }
 
 @media (prefers-color-scheme: dark) {

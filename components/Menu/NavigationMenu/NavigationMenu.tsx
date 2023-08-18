@@ -22,7 +22,7 @@ const NavigationMenu : FunctionComponent<NavigationMenuProps> = ({scrollToSkills
 
     return <div id="topNav" className={styles.topNav}>
         {menuItems.map( (content,i) =>
-            <a className={styles.button} onClick={() => content.scrollTo()} key={i}>{content.label}</a>
+            <a className={styles.button} onClick={() => content.scrollTo()} key={i}><span>{content.label}</span></a>
         )}
     </div>;
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import NavigationMenu from "./NavigationMenu/NavigationMenu";
 import LanguageButton from "./LanguageButton/LanguageButton";
@@ -40,8 +40,8 @@ class Menu extends React.Component<MenuProps>{
             <div className={(this.props.isMenuVisible?style.menuVisible:style.menuHidden)+" "+style.leftMenuBox}>
                 <MainLogo setMenuVisible={this.props.setMenuVisible}/>
                 <div className={style.menuBox}>
-                    <NavigationMenu scrollToSkills={this.props.scrollToSkills} scrollToProjects={this.props.scrollToProjects} scrollToContact={this.props.scrollToContact}/>
                     <ExteriorLinks color={"white"} />
+                    <NavigationMenu scrollToSkills={this.props.scrollToSkills} scrollToProjects={this.props.scrollToProjects} scrollToContact={this.props.scrollToContact}/>
                     <LanguageButton/>
                 </div>
             </div>

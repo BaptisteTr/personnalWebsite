@@ -1,13 +1,12 @@
 
 .topNav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: 30vw;
+    height: 100%;
 }
 .button {
-    padding-top: 18px;
-    padding-bottom: 18px;
     width: 100%;
     color: white;
     text-decoration: none;
@@ -15,15 +14,19 @@
     font-style: normal;
     cursor: pointer;
     text-align: center;
-    border-top: rgba(255,255,255,50%);
-    border-top-style: solid;
-    border-top-width: 1px;
-    font-size: 1.6rem;
+    border-left: rgba(255,255,255,50%);
+    border-left-style: solid;
+    border-left-width: 1px;
+    font-size: 1.8rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button:last-of-type {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+    border-right-style: solid;
+    border-right-width: 1px;
     border-color: rgba(255,255,255,50%);
 }
 

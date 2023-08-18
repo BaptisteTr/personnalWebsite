@@ -1,11 +1,11 @@
 .logoBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    background-color: #2E3BC0;
-    width: 100%;
+    background-color: rgba(46, 59, 192, 0.75);
+    width: 12%;
+    min-width: 300px;
     gap:5px;
-    padding-bottom: 20px;
 }
 
 .logo {
@@ -14,15 +14,24 @@
 
 .nameTitle {
     color : white;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 500;
     text-align: center;
     font-family: 'robotobold', serif;
-    margin-top: 0;
+    margin:0;
 }
 
 .trade {
     color: white;
-    margin-bottom: 0;
     font-size: 1.6rem;
+    text-align: center;
+    margin: 2px 0 0;
+}
+
+.nameBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
 }

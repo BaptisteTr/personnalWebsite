@@ -23,7 +23,7 @@
     font-size: 2rem;
     line-height: 24px;
     text-align: center;
-    font-family: "LeagueSpartan-Bold", sans-serif;
+    font-family: "robotobold", sans-serif;
 }
 
 .greenCVButton {
@@ -42,9 +42,9 @@
     background: transparent;
     border-color: #00BF94;
     color:#00BF94;
-
     text-shadow: 1px 0 #000000, -1px 0 #000000, 0 1px #000000, 0 -1px #000000,
     1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+    box-shadow: inset 2px 2px 2px black, 2px 2px 2px black;
 }
 
 .greenCVButtonBordered:hover {
@@ -52,6 +52,7 @@
     border-color: #00BF94;
     color: #000000;
     text-shadow: none;
+    box-shadow: 2px 2px 2px black;
 }
 
 .blueCVButton {

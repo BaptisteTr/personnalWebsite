@@ -119,13 +119,10 @@ class HomeSection extends React.Component<IProps, IState> {
 
     componentDidMount() {
 
-        if(window.innerWidth > 672) {
-            let space = new CanvasSpace("#pts").setup({bgcolor: "#000000", retina: true, resize: true});
-            floatySpace(space);
+        let space = new CanvasSpace("#pts").setup({bgcolor: "#000000", retina: true, resize: true});
+        floatySpace(space);
 
-            window.addEventListener('resize', this.updateDimensions);
-        }
-
+        window.addEventListener('resize', this.updateDimensions);
 
         const swapState = () => {
             this.setState( {sliding : !this.state.sliding});
