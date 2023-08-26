@@ -1,8 +1,7 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import style from './Skills.module.css';
 import {Skill as SkillT} from "../../../pages";
 import Image from "next/image";
-import { useInView } from 'react-intersection-observer'
 
 interface IProps {
     skills:SkillT[]
@@ -11,8 +10,6 @@ interface IProps {
     logo: string
 }
 
-interface IState {
-}
 
 
 function Skills(props: IProps) {
@@ -29,9 +26,33 @@ function Skills(props: IProps) {
     let light_blue_border = style.lightBlue_border;
     let green_border = style.green_border;
     let border_color = blue_border;
+    const divRef = useRef(null);
 
-    const {ref, inView} = useInView({triggerOnce : true});
+    function rotatebox(event: MouseEvent, element: any) {
+        const x = event.clientX;
+        const y = event.clientY;
 
+        if(element !== null) {
+
+            const middleX = element.offsetLeft;
+            const middleY = element.offsetTop;
+
+            const offsetX = ((Math.min(x, middleX*2) - middleX) / middleX) * 20;
+            const offsetY = ((Math.min(y, middleY*2) - middleY) / middleY) * 20;
+
+            if(props.title == "Développement Front-end") {
+                console.log("OFFSET X = (("+x+" - "+middleX+") / "+middleX+") * 20 = "+offsetX);
+                console.log(offsetX, offsetY);
+            }
+
+            element.style.transform = `perspective(5000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+        }
+
+    }
+
+    useEffect(() => {
+        addEventListener("mousemove", (e) => rotatebox(e, divRef.current));
+    }, []);
 
 
     if (props.color === "light-blue") {
@@ -43,7 +64,7 @@ function Skills(props: IProps) {
         text_color = green_text;
         border_color = green_border;
     }
-    return <div ref={ref} className={`${style.skillsDiv} ${border_color} ${inView ? style.slide : ""}`}>
+    return <div ref={divRef} className={`${style.skillsDiv} ${border_color}`}>
         <div className={style.skillLeftPanel}>
             <div className={style.logo + " " + color}>
                 <Image src={props.logo} alt={"logo skills"} height={"50px"} width={"50px"}/>

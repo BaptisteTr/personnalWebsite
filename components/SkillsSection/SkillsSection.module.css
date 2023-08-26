@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    flex-direction: column;
     width: 100%;
     background-color: #1D1D1D;
     min-height: 100vh;
@@ -29,7 +30,7 @@
     color: #00BF94;
     font-size: 6.5rem;
     line-height: 5.0rem;
-    width: 100%;
+    width: 70%;
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 20px;
@@ -39,7 +40,7 @@
 .skillsContainer {
     width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap : 3rem;
     padding: 20px;
     z-index: 1;
@@ -70,6 +71,7 @@
     .skillsContainer{
         width: 100%;
         align-items: center;
+        flex-direction: column;
     }
 
     .contentSectionContainer {
@@ -78,5 +80,7 @@
 
     .contentSectionContainer > h1 {
         margin-top: 20%;
+
+        width: 100%;
     }
 }

@@ -2,10 +2,34 @@
 
 .skillsDiv {
     display: flex;
-    width: 80%;
-    box-shadow: 3px 3px 5px rgba(0,0,0,50%);
-    border-top: solid 3px;
-    border-left: #151515 solid 3px;
+    width: 600px;
+    /*border-top: solid 3px;
+    border-left: #151515 solid 3px;*/
+    transform-style: preserve-3d;
+    transform: perspective(5000px) rotateY(0) rotateX(0);
+    position: relative;
+}
+
+.skillsDiv::before,
+.skillsDiv::after {
+
+    position: absolute;
+    border-radius: inherit;
+    content: "";
+}
+
+.skillsDiv::after {
+    inset : -1rem;
+    background: linear-gradient(30deg, #0099D7, #00ADB8, #00BF94);
+    transform: translateZ(-40px);
+}
+
+.skillsDiv::before {
+    inset : 0.25rem;
+    background: black;
+    transform: translateZ(-39px);
+    filter: blur(5px);
+    opacity: 0.5;
 }
 
 .skillLeftPanel {
@@ -111,14 +135,14 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .slide {
+    /*.slide {
         animation: enter-left-slide 1s ease-out;
         animation-fill-mode: forwards;
-    }
+    }*/
 
-    .skillsDiv {
+    /*.skillsDiv {
         transform: translateX(100%);
-    }
+    }*/
 }
 
 @media screen and (max-width: 1296px) {

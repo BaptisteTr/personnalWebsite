@@ -112,10 +112,13 @@ class HomeSection extends React.Component<IProps, IState> {
     state = { width: 0, height: 0, sliding : true };
 
     updateDimensions = () => {
+        const width = this.state.width;
         this.setState({ width: window.innerWidth, height: window.innerHeight });
 
-        let space = new CanvasSpace("#pts").setup({bgcolor: "#000000", retina: true, resize: true});
-        floatySpace(space);
+        if(window.innerWidth !== width) {
+            let space = new CanvasSpace("#pts").setup({bgcolor: "#000000", retina: true, resize: true});
+            floatySpace(space);
+        }
     };
     private interval: NodeJS.Timer | undefined;
 
