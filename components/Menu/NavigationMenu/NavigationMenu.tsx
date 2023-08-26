@@ -20,7 +20,7 @@ const NavigationMenu : FunctionComponent<NavigationMenuProps> = ({scrollToSkills
         menuItems = new Array<{label : string, scrollTo : () => void}>({label : "Skills", scrollTo : scrollToSkills}, {label : "Projects", scrollTo : scrollToProjects}, {label : "Contact", scrollTo : scrollToContact});
     }
 
-    return <div id="topNav" className={styles.topNav}>
+    return <div className={styles.topNav}>
         {menuItems.map( (content,i) =>
             <a className={styles.button} onClick={() => content.scrollTo()} key={i}><span>{content.label}</span></a>
         )}

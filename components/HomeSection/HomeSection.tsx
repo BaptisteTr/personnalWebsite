@@ -29,6 +29,7 @@ export function floatySpace(space: CanvasSpace) {
     let landmarks: any;
     let mouse: any;
     let origin : any = [];
+    let vectors : any = [];
 
     space.add({
 
@@ -49,7 +50,8 @@ export function floatySpace(space: CanvasSpace) {
             });
 
             for (let i=0; i<landmarks.length; i++) {
-                origin.push(new Pt(landmarks[i].x, landmarks[i].y))
+                origin.push(new Pt(landmarks[i].x, landmarks[i].y));
+                vectors.push(new Pt(Math.random()-0.5, Math.random()-0.5));
             }
 
         },
@@ -76,12 +78,22 @@ export function floatySpace(space: CanvasSpace) {
                 } else if( distFromMouse > 400){
                     pt.add(distanceFromOriginX/40,distanceFromOriginY/40);
                 } else {
-
                     originPt.to(space.center);
                     originPt.add((Math.random()-0.5)*space.size.x, (Math.random()-0.5)*space.size.y );
                 }
 
-                //originPt.add((Math.random()-0.5)*20,(Math.random()-0.5)*20);
+                if(originPt.x <= 0 || originPt.x >= space.size.x) {
+                    vectors[i].x = -vectors[i].x;
+                }
+                if(originPt.y <= 0 || originPt.y >= space.size.y) {
+                    vectors[i].y = -vectors[i].y;
+                }
+
+                originPt.add(vectors[i].x, vectors[i].y);
+
+
+                vectors[i].x = vectors[i].x + (Math.random() - 0.5)/10;
+                vectors[i].y = vectors[i].y + (Math.random() - 0.5)/10;
 
             }
         },
@@ -95,9 +107,6 @@ export function floatySpace(space: CanvasSpace) {
     // bind mouse events and play animation
     space.bindMouse().bindTouch().play();
 }
-
-
-
 
 class HomeSection extends React.Component<IProps, IState> {
     state = { width: 0, height: 0, sliding : true };

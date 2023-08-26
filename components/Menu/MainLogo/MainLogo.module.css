@@ -35,3 +35,11 @@
     justify-content: center;
     width: 50%;
 }
+
+
+@media screen and (max-width: 1296px) {
+
+    .logoBox {
+        width: 100%;
+    }
+}

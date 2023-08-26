@@ -114,6 +114,10 @@
     width: 40vw;
 }
 
+.portraitPart {
+    width: 30vh;
+}
+
 .sliderTitle  {
     position:relative;
     height: 10rem;
@@ -237,7 +241,7 @@
     }
 
     #portrait {
-        width: 10vw;
+        width: 5vw;
     }
 
     .sliderTitle {

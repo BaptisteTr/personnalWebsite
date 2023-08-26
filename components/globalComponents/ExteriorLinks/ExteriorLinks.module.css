@@ -19,3 +19,18 @@
     transform: scale(110%);
     transition: all 100ms ease-in;
 }
+
+.burger {
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+@media screen and (max-width: 1296px) {
+
+    .burger {
+        width: 50vw;
+    }
+}
