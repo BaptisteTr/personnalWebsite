@@ -87,6 +87,7 @@
     .menuHidden {
         opacity: 0;
         z-index: -5;
+        display: none;
     }
 
     .menuBurger {

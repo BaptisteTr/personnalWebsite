@@ -73,9 +73,9 @@ export function floatySpace(space: CanvasSpace) {
                 const distanceFromOriginX = originPt.x - pt.x;
                 const distanceFromOriginY = originPt.y - pt.y;
 
-                if (distFromMouse < 300) {
+                if (distFromMouse < 300 && space.size.x > 990) {
                     pt.add(-mouseXDistance/distFromMouse*5,-mouseYDistance/distFromMouse*5);
-                } else if( distFromMouse > 400){
+                } else if( distFromMouse > 400 || space.size.x < 990){
                     pt.add(distanceFromOriginX/40,distanceFromOriginY/40);
                 } else {
                     originPt.to(space.center);
@@ -98,7 +98,7 @@ export function floatySpace(space: CanvasSpace) {
             }
         },
         action: function(type, x, y) {
-            if (type == "move") {
+            if (type == "move" && space.size.x > 990) {
                 mouse.to(x, y);
             }
         }
