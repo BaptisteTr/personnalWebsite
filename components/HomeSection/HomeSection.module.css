@@ -213,6 +213,10 @@
         min-height: 100vh;
     }
 
+    .infoSection {
+        pointer-events: all;
+    }
+
     .homeContainer {
         height: fit-content;
     }
