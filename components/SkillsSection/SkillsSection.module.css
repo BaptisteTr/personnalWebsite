@@ -42,7 +42,6 @@
     display: flex;
     flex-direction: row;
     gap : 3rem;
-    padding: 20px;
     z-index: 1;
 }
 
@@ -83,6 +82,7 @@
 
     .contentSectionContainer {
         height: fit-content;
+        flex-direction: row;
     }
 
     .contentSectionContainer > h1 {

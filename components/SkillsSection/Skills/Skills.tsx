@@ -38,7 +38,7 @@ function Skills(props: IProps) {
             element.style.transform = `perspective(5000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
 
         } else {
-            element.style.transform = `perspective(5000px) rotateX(0deg) rotateY(0deg)`;
+            element.style.transform = ``;
         }
 
     }
