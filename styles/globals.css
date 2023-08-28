@@ -50,6 +50,10 @@ a {
   position: fixed;
 }
 
+div {
+  scroll-margin-top: 8rem;
+}
+
 @keyframes enter-left-slide {
   0% {
     transform: translateX(-100%);
@@ -76,6 +80,10 @@ a {
   .container {
     max-width: 100% !important;
     overflow-x: hidden !important;
+  }
+
+  div {
+    scroll-margin-top: 0;
   }
 
 

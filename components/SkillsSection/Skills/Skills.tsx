@@ -22,30 +22,23 @@ function Skills(props: IProps) {
     let light_blue_text = style.lightBlue_text;
     let green_text = style.green_text;
     let text_color = blue_text;
-    let blue_border = style.blue_border
-    let light_blue_border = style.lightBlue_border;
-    let green_border = style.green_border;
-    let border_color = blue_border;
     const divRef = useRef(null);
 
     function rotatebox(event: MouseEvent, element: any) {
         const x = event.clientX;
         const y = event.clientY;
 
-        if(element !== null) {
+        const middleX = element.offsetLeft + element.clientWidth / 2;
+        const middleY = element.offsetTop - element.clientHeight / 2;
 
-            const middleX = element.offsetLeft;
-            const middleY = element.offsetTop;
+        if(window.innerWidth > 990) {
 
             const offsetX = ((Math.min(x, middleX*2) - middleX) / middleX) * 20;
             const offsetY = ((Math.min(y, middleY*2) - middleY) / middleY) * 20;
-
-            if(props.title == "Développement Front-end") {
-                console.log("OFFSET X = (("+x+" - "+middleX+") / "+middleX+") * 20 = "+offsetX);
-                console.log(offsetX, offsetY);
-            }
-
             element.style.transform = `perspective(5000px) rotateX(${-offsetY}deg) rotateY(${offsetX}deg)`;
+
+        } else {
+            element.style.transform = `perspective(5000px) rotateX(0deg) rotateY(0deg)`;
         }
 
     }
@@ -58,13 +51,11 @@ function Skills(props: IProps) {
     if (props.color === "light-blue") {
         color = light_blue;
         text_color = light_blue_text;
-        border_color = light_blue_border
     } else if (props.color === "green") {
         color = green;
         text_color = green_text;
-        border_color = green_border;
     }
-    return <div ref={divRef} className={`${style.skillsDiv} ${border_color}`}>
+    return <div ref={divRef} className={`${style.skillsDiv}`}>
         <div className={style.skillLeftPanel}>
             <div className={style.logo + " " + color}>
                 <Image src={props.logo} alt={"logo skills"} height={"50px"} width={"50px"}/>
