@@ -65,6 +65,7 @@
     .skillsContainer{
         align-items: center;
         flex-direction: column;
+        min-height: fit-content;
     }
 }
 
@@ -78,6 +79,7 @@
         width: 100%;
         align-items: center;
         flex-direction: column;
+        padding-bottom: 20px;
     }
 
     .contentSectionContainer {
