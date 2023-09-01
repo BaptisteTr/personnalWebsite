@@ -83,19 +83,22 @@
 
     #portfolioSectionTitle {
         padding-top: 25%;
+        width: 100%;
     }
 
     .description {
-        width: 70%;
+        width: 90%;
+    }
+
+    #portfolioSectionDiv {
+        align-items: normal;
     }
 
 }
 
 @media screen and (max-width: 1296px) {
 
-    .description {
-        width: 100%;
-    }
+
 
     @media screen and (min-aspect-ratio: 3/2) {
 

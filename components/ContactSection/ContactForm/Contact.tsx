@@ -59,13 +59,19 @@ export const Contact: FunctionComponent<ContactProps> = ({description, email_ser
 
     const localisation = useContext(LocalisationContext);
     const [name, setName] = useState(localisation.locale === locales.francais ? "Nom" : "Name");
-    const [email, setEmail] = useState(localisation.locale === locales.francais ? "Adresse email" : "Email adress");
+    const [email, setEmail] = useState(localisation.locale === locales.francais ? "Adresse email" : "Email address");
     const [message, setMessage] = useState(localisation.locale === locales.francais ? "Votre message" : "Your message");
     const [errorName, setErrorName] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const [modal, setModal] = useState('');
 
+    useEffect(() => {
+            setName(localisation.locale === locales.francais ? "Nom" : "Name")
+            setEmail(localisation.locale === locales.francais ? "Adresse email" : "Email address")
+            setMessage(localisation.locale === locales.francais ? "Votre message" : "Your message")
+        }
+    ,[localisation.locale])
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -87,7 +93,7 @@ export const Contact: FunctionComponent<ContactProps> = ({description, email_ser
                 emailJs.send(email_service, email_template_id, data, email_key)
                     .then(() => {
                         setName(localisation.locale === locales.francais ? "Nom" : "Name")
-                        setEmail(localisation.locale === locales.francais ? "Adresse email" : "Email adress")
+                        setEmail(localisation.locale === locales.francais ? "Adresse email" : "Email address")
                         setMessage(localisation.locale === locales.francais ? "Votre message" : "Your message")
                         setErrorName(false)
                         setErrorEmail(false)
@@ -125,9 +131,10 @@ export const Contact: FunctionComponent<ContactProps> = ({description, email_ser
         }
     }
 
-    const resetLabels = (e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>, defaultValue: string) => {
+    const resetLabels = (e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>, defaultValue: string, setValue: Function) => {
         if (e && e.target.value.trim() === "") {
             e.target.value = defaultValue;
+            setValue(defaultValue);
         }
     }
 
@@ -143,12 +150,11 @@ export const Contact: FunctionComponent<ContactProps> = ({description, email_ser
                            setName(e.target.value)
                        }}
                        value={name}
-                       onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name")}
+                       onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Nom" : "Name", setName)}
                        onFocus={(e) => {
                            resetInput(e, localisation.locale === locales.francais ? "Nom" : "Name");
                            e.target.focus({preventScroll: true})
                        }}
-                       defaultValue={localisation.locale === locales.francais ? "Nom" : "Name"}
                 />
                 <span className={style.separator + " " + `${errorName ? style.inputError : ""}`}/>
             </div>
@@ -158,12 +164,11 @@ export const Contact: FunctionComponent<ContactProps> = ({description, email_ser
                            setEmail(e.target.value)
                        }}
                        value={email}
-                       onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress")}
+                       onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Adresse email" : "Email address", setEmail)}
                        onFocus={(e) => {
-                           resetInput(e, localisation.locale === locales.francais ? "Adresse email" : "Email adress");
+                           resetInput(e, localisation.locale === locales.francais ? "Adresse email" : "Email address");
                            e.target.focus({preventScroll: true})
                        }}
-                       defaultValue={localisation.locale === locales.francais ? "Adresse email" : "Email adress"}
                 />
                 <span className={style.separator + " " + `${errorEmail ? style.inputError : ""}`}/>
             </div>
@@ -174,12 +179,11 @@ export const Contact: FunctionComponent<ContactProps> = ({description, email_ser
                           setMessage(e.target.value)
                       }}
                       value={message}
-                      onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message")}
+                      onBlur={(e) => resetLabels(e, localisation.locale === locales.francais ? "Votre message" : "Your message", setMessage)}
                       onFocus={(e) => {
                           resetInput(e, localisation.locale === locales.francais ? "Votre message" : "Your message");
                           e.target.focus({preventScroll: true})
                       }}
-                      defaultValue={localisation.locale === locales.francais ? "Votre message" : "Your message"}
             ></textarea>
                 <span className={style.separator + " " + `${errorMessage ? style.inputError : ""}`}/>
 
