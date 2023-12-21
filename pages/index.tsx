@@ -153,7 +153,7 @@ const Home = ({projects, skills, descriptions,EMAIL_SERVICE,EMAIL_KEY,EMAIL_TEMP
                 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
                 <meta name="msapplication-TileColor" content="#da532c"/>
                 <meta name="theme-color" content="#ffffff"/>
-                <title>Baptiste Trautmann - Développeur Freelance</title>
+                <title>Baptiste Trautmann - Développeur logiciel</title>
             </Head>
             <div className="layout">
 

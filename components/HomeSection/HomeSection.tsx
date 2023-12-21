@@ -174,8 +174,7 @@ class HomeSection extends React.Component<IProps, IState> {
                 <div className={style.homeSection}>
                     <div className={style.textPart}>
                         <div className={style.sliderTitle}>
-                            <h1 className={this.state.sliding ? style.active : style.inactive}>Baptiste Trautmann</h1>
-                            <h1 className={this.state.sliding ? style.inactive : style.active}>Freelance</h1>
+                            <h1>Baptiste Trautmann</h1>
                         </div>
                         <h2 className={style.homeTitle}>{title}</h2>
                         <p className={style.homeDescription}>{description1} <br></br> {description2} </p>
